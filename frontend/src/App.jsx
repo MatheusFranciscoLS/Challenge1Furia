@@ -37,9 +37,22 @@ function App() {
 
     // Live status fetch
   useEffect(() => {
-    fetch(import.meta.env.VITE_API_URL + '/api/live-status')
-      .then(res => res.json())
-      .then(setStatus);
+    const apiUrl = import.meta.env.VITE_API_URL;
+    if (!apiUrl) {
+      setStatus(null);
+      return;
+    }
+    fetch(apiUrl + '/api/live-status')
+      .then(async (res) => {
+        // Se não for JSON válido, retorna null
+        try {
+          return await res.json();
+        } catch {
+          return null;
+        }
+      })
+      .then(setStatus)
+      .catch(() => setStatus(null));
   }, []);
 
   // Auth listener
