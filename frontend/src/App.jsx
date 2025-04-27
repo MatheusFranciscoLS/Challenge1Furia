@@ -249,18 +249,7 @@ function App() {
           <p>Bem-vindo ao chat oficial dos fãs da FURIA!</p>
           <span className="furia-slogan">#FURIAÉNOSSA | Paixão e Garra nos Esportes</span>
           {/* Fallback visual para status da API */}
-          {(status === 'indisponivel' || status === 'mock') && (
-            <div style={{color:'#FFD600',background:'#23242b',padding:'7px 13px',borderRadius:8,marginTop:10,fontWeight:600,fontSize:'1.04em'}}>
-              {status === 'mock' ? (
-                <span>⚡ Rodando em modo simulado (mock). Nenhuma API real está sendo usada.</span>
-              ) : (
-                <>
-                  <span>⚠️ Status da API indisponível no momento.</span>
-                  <span style={{fontSize:'0.98em',marginLeft:8}}>Verifique variáveis no Vercel.</span>
-                </>
-              )}
-            </div>
-          )}
+
         </div>
         <div className="furia-content-row">
           {!isMobile && (
