@@ -46,40 +46,25 @@ function App() {
   useEffect(() => {
     const apiUrl = import.meta.env.VITE_API_URL;
     if (!apiUrl) {
-      setStatus('indisponivel');
-      if (process.env.NODE_ENV === 'production') {
-        // Log para Vercel
-        console.warn('VITE_API_URL não definida no ambiente de produção!');
-      }
+      setStatus('mock'); // Modo simulado, nunca quebra
       return;
     }
     fetch(apiUrl + '/api/live-status')
       .then(async (res) => {
         try {
           return await res.json();
-        } catch (err) {
-          if (process.env.NODE_ENV === 'production') {
-            console.error('Resposta não é JSON válido:', err);
-          }
+        } catch {
           return null;
         }
       })
       .then((data) => {
         if (!data) {
           setStatus('indisponivel');
-          if (process.env.NODE_ENV === 'production') {
-            console.warn('API /api/live-status retornou vazio ou inválido');
-          }
         } else {
           setStatus(data);
         }
       })
-      .catch((err) => {
-        setStatus('indisponivel');
-        if (process.env.NODE_ENV === 'production') {
-          console.error('Erro ao buscar /api/live-status:', err);
-        }
-      });
+      .catch(() => setStatus('indisponivel'));
   }, []);
 
   // Auth listener
@@ -264,10 +249,16 @@ function App() {
           <p>Bem-vindo ao chat oficial dos fãs da FURIA!</p>
           <span className="furia-slogan">#FURIAÉNOSSA | Paixão e Garra nos Esportes</span>
           {/* Fallback visual para status da API */}
-          {status === 'indisponivel' && (
+          {(status === 'indisponivel' || status === 'mock') && (
             <div style={{color:'#FFD600',background:'#23242b',padding:'7px 13px',borderRadius:8,marginTop:10,fontWeight:600,fontSize:'1.04em'}}>
-              <span>⚠️ Status da API indisponível no momento.</span>
-              <span style={{fontSize:'0.98em',marginLeft:8}}>Verifique variáveis no Vercel.</span>
+              {status === 'mock' ? (
+                <span>⚡ Rodando em modo simulado (mock). Nenhuma API real está sendo usada.</span>
+              ) : (
+                <>
+                  <span>⚠️ Status da API indisponível no momento.</span>
+                  <span style={{fontSize:'0.98em',marginLeft:8}}>Verifique variáveis no Vercel.</span>
+                </>
+              )}
             </div>
           )}
         </div>
