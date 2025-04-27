@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import whatsappIcon from './assets/WhatsApp.svg';
 import LiveStatus from "./LiveStatus.jsx";
 import Message from "./Message.jsx";
 import QuizEnqueteModal from "./QuizEnqueteModal.jsx";
@@ -360,40 +361,39 @@ export default function MainChat({ user, messages, handleSend, msg, setMsg, hand
       </div>
     );
   }
-  // Banner Whatsapp FURIA
+  // Botão flutuante WhatsApp FURIA
   const whatsappBanner = (
-    <div style={{
-      background: 'linear-gradient(90deg,#181A20 70%,#25D366 100%)',
-      color: '#fff',
-      borderRadius: 10,
-      padding: '10px 18px',
-      margin: '0px 7px 14px auto',
-      maxWidth: 590,
-      boxShadow: '0 2px 12px #25D36622, 0 1.5px 6px #0008',
-      display: 'flex',
-      alignItems: 'center',
-      gap: 16,
-      fontWeight: 500,
-      fontSize: '1.08em',
-      border: '2px solid #25D366',
-      justifyContent: 'center'
-    }}>
-      <span style={{fontSize:'1.28em',marginRight:8}}>💬</span>
-      Referência do Contato Inteligente da FURIA no WhatsApp (closed beta):
-      <a href="https://wa.me/5511993404466" target="_blank" rel="noopener noreferrer" style={{
-        marginLeft: 12,
-        color: '#25D366',
-        background: '#fff',
-        borderRadius: 5,
-        padding: '2px 10px',
-        fontWeight: 700,
+    <a
+      href="https://wa.me/5511993404466"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Contato Inteligente da FURIA no WhatsApp"
+      style={{
+        position: 'fixed',
+        bottom: 28,
+        right: 28,
+        zIndex: 9999,
+        background: 'linear-gradient(135deg,#25D366 80%,#181A20 100%)',
+        color: '#181A20',
+        borderRadius: '50%',
+        width: 64,
+        height: 64,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        boxShadow: '0 4px 20px #25D36655, 0 1.5px 8px #000b',
+        border: '3px solid #fff',
+        fontSize: '2.2em',
+        fontWeight: 900,
+        transition: 'transform 0.15s',
+        cursor: 'pointer',
+        outline: 'none',
         textDecoration: 'none',
-        fontSize: '1.04em',
-        boxShadow: '0 1px 6px #25D36622',
-        transition: 'background 0.15s, color 0.15s',
-        border: '1.5px solid #25D366'
-      }}>Abrir WhatsApp</a>
-    </div>
+      }}
+      aria-label="Abrir WhatsApp FURIA"
+    >
+      <img src={whatsappIcon} alt="WhatsApp" style={{width:34, height:34, display:'block'}} />
+    </a>
   );
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const [sendBounce, setSendBounce] = useState(false);
