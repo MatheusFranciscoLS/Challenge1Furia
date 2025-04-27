@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Toast from './Toast.jsx';
 import Sidebar from './Sidebar.jsx';
+import MobileSidebarMenu from './MobileSidebarMenu.jsx';
 import MainChat from './MainChat.jsx';
 import QuizEnqueteModal from './QuizEnqueteModal.jsx';
 import { quizPerguntas } from './QuizData';
@@ -23,6 +24,8 @@ import Landing from './Landing.jsx';
  * Renderiza Landing, Sidebar, MainChat, EventFeed e outros componentes principais.
  */
 function App() {
+  // Estado do menu mobile
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [status, setStatus] = useState(null);
   const [user, setUser] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -192,8 +195,33 @@ function App() {
   if (!user) {
     return <Landing />;
   }
+  // Detecta se está em mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 600);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <>
+      {isMobile && (
+        <button
+          className="furia-hamburger-btn"
+          aria-label="Abrir menu"
+          onClick={() => setMobileMenuOpen(true)}
+        >
+          <span style={{fontSize:'1.5em',fontWeight:700}}>☰</span>
+        </button>
+      )}
+      <MobileSidebarMenu
+        open={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        channel={channel}
+        setChannel={setChannel}
+        topFans={topFansArr}
+        user={user}
+      />
       <div id="furia-root" className="furia-layout">
         <div className="furia-header">
           <div className="furia-logo-wrap">
@@ -204,7 +232,9 @@ function App() {
           <span className="furia-slogan">#FURIAÉNOSSA | Paixão e Garra nos Esportes</span>
         </div>
         <div className="furia-content-row">
-          <Sidebar channel={channel} setChannel={setChannel} topFans={topFansArr} user={user} onQuiz={()=>setShowQuiz(true)} onEnquete={()=>setShowEnquete(true)} />
+          {!isMobile && (
+            <Sidebar channel={channel} setChannel={setChannel} topFans={topFansArr} user={user} onQuiz={()=>setShowQuiz(true)} onEnquete={()=>setShowEnquete(true)} />
+          )}
 
           <MainChat
             user={user}
