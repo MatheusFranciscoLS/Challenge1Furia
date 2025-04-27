@@ -24,13 +24,20 @@ import Landing from './Landing.jsx';
  * Renderiza Landing, Sidebar, MainChat, EventFeed e outros componentes principais.
  */
 function App() {
-  // Estado do menu mobile
+  // Hooks SEMPRE no topo do componente!
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [status, setStatus] = useState(null);
   const [user, setUser] = useState(null);
   const [messages, setMessages] = useState([]);
   const [msg, setMsg] = useState('');
   const [loading, setLoading] = useState(true);
+  // Detecta se está em mobile
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 600);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const [channel, setChannel] = useState(CHANNELS[0].id);
   // Estado global de modalidade
   const [modalidade, setModalidade] = useState('all');
@@ -208,13 +215,6 @@ function App() {
   if (!user) {
     return <Landing />;
   }
-  // Detecta se está em mobile
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 600);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   return (
     <>
