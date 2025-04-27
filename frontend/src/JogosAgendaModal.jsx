@@ -50,10 +50,56 @@ export default function JogosAgendaModal({ open, onClose }) {
                   minHeight:120,
                   border:'1.5px solid #FFD60022'
                 }}>
-                  <div style={{fontWeight:700,fontSize:17,color:'#FFD600',marginBottom:4}}>{j.modalidade.toUpperCase()}</div>
-                  <div style={{fontWeight:500,fontSize:15,marginBottom:2}}>vs {j.adversario}</div>
-                  <div style={{fontSize:14,margin:'2px 0'}}>Data: <b>{j.data}</b> às <b>{j.hora}</b></div>
-                  <div style={{fontSize:13,opacity:.85}}>Torneio: {j.torneio}</div>
+                  <div style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: 6,
+                    width: '100%',
+                    margin: '0 0 0 0',
+                    padding: 0
+                  }}>
+                    <div style={{
+                      fontSize: '1.09em',
+                      letterSpacing: 0.8,
+                      color: '#FFD600',
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      marginBottom: 2
+                    }}>
+                      {j.modalidade && j.modalidade.toLowerCase() === 'cs' ? 'Counter-Strike 2' : j.modalidade}
+                    </div>
+                    <div style={{
+                      fontSize: '1.18em',
+                      color: '#fff',
+                      fontWeight: 800,
+                      letterSpacing: 0.2,
+                      marginBottom: 2,
+                      textShadow: '0 2px 8px #FFD60044, 0 1px 2px #000b'
+                    }}>
+                      FURIA <span style={{color:'#FFD600',fontWeight:900}}>vs</span> <span style={{color:'#FFD600',fontWeight:700}}>{j.adversario}</span>
+                    </div>
+                    <div style={{
+                      fontSize: '1.01em',
+                      color: '#FFD600',
+                      fontWeight: 600,
+                      marginBottom: 2,
+                      letterSpacing: 0.2
+                    }}>
+                      {j.data} &nbsp; <span style={{color:'#fff'}}>às</span> &nbsp;{j.hora}
+                    </div>
+                    <div style={{
+                      fontSize: '0.98em',
+                      color: '#fff',
+                      fontWeight: 400,
+                      opacity: 0.82,
+                      marginBottom: 0,
+                      textAlign: 'center',
+                      letterSpacing: 0.1
+                    }}>
+                      {j.torneio}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

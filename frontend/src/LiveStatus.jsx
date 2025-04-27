@@ -58,10 +58,55 @@ export default function LiveStatus({ status }) {
           Próxima partida
         </h3>
         {nextGame ? (
-          <div style={{ color: '#FFD600', fontSize: '1.08em', marginBottom: 6 }}>
-            <strong>{nextGame.modalidade}</strong> vs <strong>{nextGame.adversario}</strong><br />
-            <span style={{ color: '#fff' }}>{nextGame.data} às {nextGame.hora}</span><br />
-            <span style={{ color: '#bbb', fontSize: '0.97em' }}>{nextGame.torneio}</span>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: 8,
+            margin: '18px 0 4px 0',
+            padding: '6px 0 2px 0',
+            width: '100%'
+          }}>
+            <div style={{
+              fontSize: '1.13em',
+              letterSpacing: 0.8,
+              color: '#FFD600',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              marginBottom: 2
+            }}>
+              {nextGame.modalidade && nextGame.modalidade.toLowerCase() === 'cs' ? 'Counter-Strike 2' : nextGame.modalidade}
+            </div>
+            <div style={{
+              fontSize: '1.35em',
+              color: '#fff',
+              fontWeight: 800,
+              letterSpacing: 0.5,
+              marginBottom: 2,
+              textShadow: '0 2px 8px #FFD60044, 0 1px 2px #000b'
+            }}>
+              FURIA <span style={{color:'#FFD600',fontWeight:900}}>vs</span> <span style={{color:'#FFD600',fontWeight:700}}>{nextGame.adversario}</span>
+            </div>
+            <div style={{
+              fontSize: '1.08em',
+              color: '#FFD600',
+              fontWeight: 600,
+              marginBottom: 2,
+              letterSpacing: 0.3
+            }}>
+              {nextGame.data} &nbsp; <span style={{color:'#fff'}}>às</span> &nbsp;{nextGame.hora}
+            </div>
+            <div style={{
+              fontSize: '1.01em',
+              color: '#fff',
+              fontWeight: 400,
+              opacity: 0.82,
+              marginBottom: 0,
+              textAlign: 'center',
+              letterSpacing: 0.2
+            }}>
+              {nextGame.torneio}
+            </div>
           </div>
         ) : (
           <div style={{ color: '#bbb', fontSize: '1em' }}>
