@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { CHANNELS } from "./ChannelSelector.jsx";
 import Badges from "./Badges";
 import MuralRecados from "./MuralRecados";
+import JogosAgendaModal from "./JogosAgendaModal";
+import PlacaresModal from "./PlacaresModal";
 
 export default function MobileSidebarMenu({ channel, setChannel, topFans, user, open, onClose }) {
+  const [openJogos, setOpenJogos] = useState(false);
+  const [openPlacares, setOpenPlacares] = useState(false);
   if (!open) return null;
   return (
     <div className="furia-mobile-menu-overlay" onClick={onClose}>
@@ -22,6 +26,22 @@ export default function MobileSidebarMenu({ channel, setChannel, topFans, user, 
               {c.label}
             </button>
           ))}
+        </div>
+        <div className="furia-mobile-section" style={{marginTop:18, marginBottom:8}}>
+          <button
+            className="furia-btn"
+            style={{width:'100%',background:'#FFD600',color:'#181A20',fontWeight:700,borderRadius:8,padding:'12px 0',marginBottom:10,fontSize:'1.09em'}}
+            onClick={() => setOpenJogos(true)}
+          >
+            📅 Agenda de Jogos
+          </button>
+          <button
+            className="furia-btn"
+            style={{width:'100%',background:'#FFD600',color:'#181A20',fontWeight:700,borderRadius:8,padding:'12px 0',marginBottom:10,fontSize:'1.09em'}}
+            onClick={() => setOpenPlacares(true)}
+          >
+            🏆 Placares Recentes
+          </button>
         </div>
         <div className="furia-mobile-section">
           <div className="furia-sidebar-label">Top Fãs</div>
@@ -45,6 +65,8 @@ export default function MobileSidebarMenu({ channel, setChannel, topFans, user, 
           <MuralRecados user={user} topFanUid={topFans && topFans[0] ? topFans[0].uid : null} topFansArr={topFans} />
         </div>
       </aside>
+      <JogosAgendaModal open={openJogos} onClose={() => setOpenJogos(false)} />
+      <PlacaresModal open={openPlacares} onClose={() => setOpenPlacares(false)} />
     </div>
   );
 }
