@@ -14,37 +14,3 @@
     {"modalidade": "Valorant", "adversario": "KRÜ", "data": "24/05/2025", "hora": "21:00", "torneio": "Champions Tour"}
   ]
 }
-      "data": "01/05/2025",
-      "hora": "18:00",
-      "torneio": "BLAST Premier"
-    },
-    {
-      "modalidade": "Valorant",
-      "adversario": "LOUD",
-      "data": "03/05/2025",
-      "hora": "20:00",
-      "torneio": "Champions Tour"
-    },
-    {
-      "modalidade": "Rocket League",
-      "adversario": "G2 Esports",
-      "data": "05/05/2025",
-      "hora": "16:00",
-      "torneio": "RLCS"
-    },
-    {
-      "modalidade": "Rainbow Six",
-      "adversario": "Team oNe",
-      "data": "07/05/2025",
-      "hora": "21:00",
-      "torneio": "BR6"
-    },
-    {
-      "modalidade": "Kings League",
-      "adversario": "Ultimate Móstoles",
-      "data": "10/05/2025",
-      "hora": "19:00",
-      "torneio": "Kings League InfoJobs"
-    }
-  ]
-}

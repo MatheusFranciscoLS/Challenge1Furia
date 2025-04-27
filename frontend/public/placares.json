@@ -14,37 +14,3 @@
     {"modalidade": "Valorant", "adversario": "KRÜ", "data": "14/04/2025", "resultado": "11x13", "torneio": "Champions Tour"}
   ]
 }
-      "data": "25/04/2025",
-      "resultado": "16x11",
-      "torneio": "BLAST Premier"
-    },
-    {
-      "modalidade": "Valorant",
-      "adversario": "Sentinels",
-      "data": "24/04/2025",
-      "resultado": "13x8",
-      "torneio": "Champions Tour"
-    },
-    {
-      "modalidade": "Rocket League",
-      "adversario": "FaZe Clan",
-      "data": "23/04/2025",
-      "resultado": "3x2",
-      "torneio": "RLCS"
-    },
-    {
-      "modalidade": "Rainbow Six",
-      "adversario": "Black Dragons",
-      "data": "22/04/2025",
-      "resultado": "7x5",
-      "torneio": "BR6"
-    },
-    {
-      "modalidade": "Kings League",
-      "adversario": "Rayo de Barcelona",
-      "data": "21/04/2025",
-      "resultado": "4x3",
-      "torneio": "Kings League InfoJobs"
-    }
-  ]
-}
