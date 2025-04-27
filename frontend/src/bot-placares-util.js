@@ -7,7 +7,7 @@
  */
 export async function fetchPlacares() {
   try {
-    const res = await fetch("http://localhost:3031/api/placares");
+    const res = await fetch("/placares.json");
     if (!res.ok) return [];
     const data = await res.json();
     return data.placares || [];

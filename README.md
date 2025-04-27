@@ -57,13 +57,19 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
 
 ## 🖼️ Demonstração
 
-- Prints ou GIFs mostrando:
+- Prints mostrando:
   - Tela de login com botões "Entrar com Google" e "Entrar como Anônimo"
   - Chat em funcionamento após login
   - Logout retornando à tela de login
   - Abertura dos modais de agenda de jogos e placares recentes
   - Interação do fã com o bot e comandos
 - [Link para vídeo de demonstração (YouTube/Drive)](URL_DO_VIDEO)
+![Tela de Login](./frontend/public/prints/login.png)
+![Chat em funcionamento](./frontend/public/prints/chat.png)
+![Modal de Agenda](./frontend/public/prints/agenda.png)
+![Interação com o Bot](./frontend/public/prints/bot.png)
+
+> **Observação:** A agenda de jogos e os placares exibem até 12 cards por vez. Para alterar esse limite, basta modificar o número no código (`.slice(0, 12)`).
 
 ---
 

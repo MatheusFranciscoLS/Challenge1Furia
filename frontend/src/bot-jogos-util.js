@@ -7,7 +7,7 @@
  */
 export async function fetchJogos() {
   try {
-    const res = await fetch("http://localhost:3031/api/jogos");
+    const res = await fetch("/jogos.json");
     if (!res.ok) return [];
     const data = await res.json();
     return data.jogos || [];
