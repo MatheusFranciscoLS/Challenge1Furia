@@ -13,6 +13,7 @@ export default function TopFans({ messages }) {
   const counts = {};
   const userInfo = {};
   messages.forEach(m => {
+    if (m.channel === 'bot-ajuda') return; // Ignora mensagens do canal de suporte
     const nome = (m.user || m.displayName || '').trim().toLowerCase();
     const uid = m.uid || `anon-${(m.user || m.displayName || 'anon')}`;
     if (uid === 'furia-bot' || nome === 'torcida furia') return; // FILTRO DO BOT
