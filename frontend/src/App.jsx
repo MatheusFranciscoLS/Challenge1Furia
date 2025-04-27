@@ -252,8 +252,18 @@ function App() {
               <span className="furia-slogan">#FURIAÉNOSSA | Paixão e Garra nos Esportes</span>
             </div>
           </div>
-          {/* Top Fãs agora só no header */}
-          <TopFans messages={messages} />
+          {/* Top 1 Fã centralizado no header */}
+          <div style={{
+            flex:1,
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center',
+            minHeight:54,
+            position:'relative',
+            zIndex:2
+          }}>
+            <TopFans messages={messages} mode="top3" />
+          </div>
 
           <div className="furia-social-bar" style={{display:'flex',alignItems:'center',gap:18}}>
             <a href="https://twitter.com/furiagg" target="_blank" rel="noopener noreferrer" title="Twitter/X" className="furia-social-link">
