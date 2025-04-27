@@ -108,7 +108,7 @@ router.delete('/:jogador', authenticate, async (req, res) => {
 
   // Tratamento: impedir consulta por modalidade e comandos reservados
   const modalidades = [
-    'cs2', 'csgo', 'valorant', 'lol', 'rocketleague', 'apex', 'rainbowsix', 'kingsleague', 'fifa'
+    'csgo2', 'csgo', 'valorant', 'lol', 'rocketleague', 'apex', 'rainbowsix', 'kingsleague', 'fifa'
   ];
   if (!jogador || jogador === 'help' || jogador === 'comandos' || modalidades.includes(jogador)) {
     return res.status(400).json({ erro: 'Informe um jogador válido para consultar estatísticas. Consulte /elenco para ver os jogadores.' });

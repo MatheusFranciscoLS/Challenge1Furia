@@ -3,18 +3,18 @@ defaultToken = 'qJQjObmjcETxjBH0GKX5V4RpDQbIlEsoTIEI5T0OuEZLA8P6rTw';
 const axios = require('axios');
 
 const TEAM_IDS = {
-  cs2: 6665, // FURIA CS:GO/CS2
+  csgo2: 6665, // FURIA CS:GO/csgo2
   lol: 11355, // FURIA LoL (ajustar se necessário)
   valorant: 11617, // FURIA Valorant (ajustar se necessário)
   // Adicione outros IDs se necessário
 };
 
-async function getFuriaLiveStatusPandascore(modalidade = 'cs2', token = defaultToken) {
+async function getFuriaLiveStatusPandascore(modalidade = 'csgo2', token = defaultToken) {
   let url = '';
   let teamId = TEAM_IDS[modalidade];
   if (!teamId) return null;
 
-  if (modalidade === 'cs2') {
+  if (modalidade === 'csgo2') {
     url = `https://api.pandascore.io/csgo/matches?filter[opponent_id]=${teamId}&sort=begin_at`;
   } else if (modalidade === 'lol') {
     url = `https://api.pandascore.io/lol/matches?filter[opponent_id]=${teamId}&sort=begin_at`;

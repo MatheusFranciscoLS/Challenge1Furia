@@ -13,12 +13,12 @@ async function seed() {
   // Modalidades (do furia-modalidades.js)
   await db.collection('modalidades').doc('list').set({
     modalidades: [
-      'cs2', 'valorant', 'rainbowsix', 'apex', 'lol', 'rocketleague', 'pubg', 'futebol7'
+      'csgo2', 'valorant', 'rainbowsix', 'apex', 'lol', 'rocketleague', 'pubg', 'futebol7'
     ]
   });
 
   // Elenco (do elenco.json)
-  await db.collection('elenco').doc('cs2').set({ jogadores: ["arT", "yuurih", "KSCERATO", "chelo", "saffee"] });
+  await db.collection('elenco').doc('csgo2').set({ jogadores: ["arT", "yuurih", "KSCERATO", "chelo", "saffee"] });
   await db.collection('elenco').doc('valorant').set({ jogadores: ["Mazin", "QCK", "Khalil", "mwzera", "Quick"] });
   await db.collection('elenco').doc('rainbowsix').set({ jogadores: ["R4re", "Handyy", "Miracle", "Fntzy", "Lenda"] });
   await db.collection('elenco').doc('fifa').set({ jogadores: ["Gabrielpn", "Resende"] });
@@ -28,9 +28,9 @@ async function seed() {
   await db.collection('elenco').doc('rocketleague').set({ jogadores: ["CaioTG1", "Card", "Repi", "Drufus"] });
 
   // Estatísticas (do estatisticas.json)
-  await db.collection('estatisticas').doc('art').set({ kills: 120, deaths: 90, kdr: 1.33, time: "FURIA", curiosidade: "IGL mais agressivo do Brasil!", modalidade: "cs2" });
-  await db.collection('estatisticas').doc('yuurih').set({ kills: 140, deaths: 80, kdr: 1.75, time: "FURIA", curiosidade: "Especialista em entry frag.", modalidade: "cs2" });
-  await db.collection('estatisticas').doc('kscerato').set({ kills: 130, deaths: 85, kdr: 1.53, time: "FURIA", curiosidade: "Clutch master.", modalidade: "cs2" });
+  await db.collection('estatisticas').doc('art').set({ kills: 120, deaths: 90, kdr: 1.33, time: "FURIA", curiosidade: "IGL mais agressivo do Brasil!", modalidade: "csgo2" });
+  await db.collection('estatisticas').doc('yuurih').set({ kills: 140, deaths: 80, kdr: 1.75, time: "FURIA", curiosidade: "Especialista em entry frag.", modalidade: "csgo2" });
+  await db.collection('estatisticas').doc('kscerato').set({ kills: 130, deaths: 85, kdr: 1.53, time: "FURIA", curiosidade: "Clutch master.", modalidade: "csgo2" });
   await db.collection('estatisticas').doc('mazinn').set({ kills: 95, deaths: 70, kdr: 1.36, time: "FURIA", curiosidade: "Destaque no Valorant.", modalidade: "valorant" });
   await db.collection('estatisticas').doc('qck').set({ kills: 110, deaths: 85, kdr: 1.29, time: "FURIA", curiosidade: "Duelista ágil.", modalidade: "valorant" });
   await db.collection('estatisticas').doc('r4re').set({ kills: 80, deaths: 60, kdr: 1.33, time: "FURIA", curiosidade: "Capitão da equipe R6.", modalidade: "rainbowsix" });
@@ -41,7 +41,7 @@ async function seed() {
   await db.collection('estatisticas').doc('caiotg1').set({ gols: 12, saves: 30, partidas: 5, time: "FURIA", curiosidade: "Campeão brasileiro de Rocket League.", modalidade: "rocketleague" });
 
   // Curiosidades (do curiosidades.json)
-  await db.collection('curiosidades').doc('cs2').set({ curiosidades: [
+  await db.collection('curiosidades').doc('csgo2').set({ curiosidades: [
     "A FURIA foi a primeira equipe brasileira a chegar ao top 3 mundial em 2019.",
     "O estilo agressivo da FURIA é referência internacional."
   ] });
@@ -75,7 +75,7 @@ async function seed() {
   ] });
 
   // Jogos (do jogos.json)
-  await db.collection('jogos').add({ modalidade: "cs2", adversario: "NAVI", data: "2025-05-01", hora: "18:00", torneio: "Major" });
+  await db.collection('jogos').add({ modalidade: "csgo2", adversario: "NAVI", data: "2025-05-01", hora: "18:00", torneio: "Major" });
   await db.collection('jogos').add({ modalidade: "valorant", adversario: "LOUD", data: "2025-05-02", hora: "20:00", torneio: "Champions" });
   await db.collection('jogos').add({ modalidade: "rainbowsix", adversario: "Liquid", data: "2025-05-03", hora: "17:00", torneio: "Brasileirão R6" });
   await db.collection('jogos').add({ modalidade: "fifa", adversario: "SPQR", data: "2025-05-04", hora: "21:00", torneio: "e-Brasileirão" });
@@ -85,7 +85,7 @@ async function seed() {
   await db.collection('jogos').add({ modalidade: "rocketleague", adversario: "Team BDS", data: "2025-05-08", hora: "15:00", torneio: "RLCS" });
 
   // Placares (do placares.json)
-  await db.collection('placares').add({ modalidade: "cs2", resultado: "FURIA 16x12 NAVI", data: "2025-04-20" });
+  await db.collection('placares').add({ modalidade: "csgo2", resultado: "FURIA 16x12 NAVI", data: "2025-04-20" });
   await db.collection('placares').add({ modalidade: "valorant", resultado: "FURIA 13x11 LOUD", data: "2025-04-19" });
   await db.collection('placares').add({ modalidade: "rainbowsix", resultado: "FURIA 7x5 Liquid", data: "2025-04-18" });
   await db.collection('placares').add({ modalidade: "fifa", resultado: "FURIA 3x2 SPQR", data: "2025-04-17" });
@@ -95,7 +95,7 @@ async function seed() {
   await db.collection('placares').add({ modalidade: "rocketleague", resultado: "FURIA 3x2 Team BDS", data: "2025-04-13" });
 
   // Notícias (do noticias.json)
-  await db.collection('noticias').add({ titulo: "FURIA vence NAVI no Major de CS2!", data: "2025-04-20", modalidade: "cs2" });
+  await db.collection('noticias').add({ titulo: "FURIA vence NAVI no Major de csgo2!", data: "2025-04-20", modalidade: "csgo2" });
   await db.collection('noticias').add({ titulo: "Nova line-up de Valorant anunciada", data: "2025-04-19", modalidade: "valorant" });
   await db.collection('noticias').add({ titulo: "FURIA faz jogo épico contra Liquid no Rainbow Six", data: "2025-04-18", modalidade: "rainbowsix" });
   await db.collection('noticias').add({ titulo: "FURIA conquista título no e-Brasileirão de FIFA", data: "2025-04-17", modalidade: "fifa" });

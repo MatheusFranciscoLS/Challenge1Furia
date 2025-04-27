@@ -37,7 +37,7 @@ const { resolveModalidade } = require('../utils/modalidadeSynonyms');
 router.get('/:modalidade', async (req, res) => {
   const modalidadeParam = req.params.modalidade.toLowerCase();
 const modalidadesValidas = [
-  'cs2','csgo','valorant','lol','rocketleague','apex','rainbowsix','kingsleague','fifa'
+  'csgo2','csgo','valorant','lol','rocketleague','apex','rainbowsix','kingsleague','fifa'
 ];
 if (!modalidadeParam || modalidadeParam === 'help' || modalidadeParam === 'comandos' || !modalidadesValidas.includes(modalidadeParam)) {
   return res.status(400).json({ erro: 'Informe uma modalidade válida para consultar o elenco. Consulte /modalidades para ver as opções.' });

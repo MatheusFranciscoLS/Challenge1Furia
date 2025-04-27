@@ -40,9 +40,21 @@ function eventBadge(type) {
  * @type {Array<{icon: string, text: string}>}
  */
 const EVENTOS_EXEMPLO = [
-  { icon: '🔥', text: 'FURIA venceu o pistol round!' },
-  { icon: '💥', text: 'KSCERATO fez um clutch 1v3!' },
-  { icon: '🎯', text: 'arT abriu o bombsite com entry kill.' },
+  { icon: '🔥', text: 'FURIA venceu o pistol round!', modalidade: 'csgo2' },
+  { icon: '💥', text: 'KSCERATO fez um clutch 1v3!', modalidade: 'csgo2' },
+  { icon: '🎯', text: 'arT abriu o bombsite com entry kill.', modalidade: 'csgo2' },
+  { icon: '⚡', text: 'FURIA garantiu o Spike plantado!', modalidade: 'valorant' },
+  { icon: '🔫', text: 'qck fez um ace incrível!', modalidade: 'valorant' },
+  { icon: '🛡️', text: 'Khalil segurou o bombsite sozinho.', modalidade: 'valorant' },
+  { icon: '🐉', text: 'FURIA garantiu o Dragão Ancião!', modalidade: 'lol' },
+  { icon: '🏆', text: 'FURIA venceu uma teamfight decisiva!', modalidade: 'lol' },
+  { icon: '🦁', text: 'FNB fez um pentakill!', modalidade: 'lol' },
+  { icon: '🚗', text: 'FURIA marcou um gol de bicicleta!', modalidade: 'rocketleague' },
+  { icon: '🥅', text: 'Defesa milagrosa no último segundo!', modalidade: 'rocketleague' },
+  { icon: '⚽', text: 'Duplo toque aéreo impressionante!', modalidade: 'rocketleague' },
+  { icon: '🏹', text: 'FURIA fez booyah na queda final!', modalidade: 'freefire' },
+  { icon: '💣', text: 'Jogador eliminou 4 de uma vez na granada!', modalidade: 'freefire' },
+  { icon: '🪂', text: 'Equipe caiu em local estratégico.', modalidade: 'freefire' },
 ];
 
 /**
@@ -73,6 +85,9 @@ export default function EventFeed({ events: propEvents, modalidade = 'all', setM
   let filteredEvents = events;
   if (modalidade && modalidade !== 'all') {
     filteredEvents = events.filter(e => e.modalidade === modalidade);
+  } else {
+    // No filtro 'Todas', mostre apenas os 3 mais novos
+    filteredEvents = events.slice(-3).reverse(); // últimos 3, mais recentes primeiro
   }
   // Preenche com placeholders caso não haja eventos
   const feedEvents = filteredEvents && filteredEvents.length ? filteredEvents : Array(minRows).fill(null);

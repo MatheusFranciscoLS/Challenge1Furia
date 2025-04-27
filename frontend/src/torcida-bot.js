@@ -226,7 +226,7 @@ export async function botResponder(msg) {
       }
       return data.elenco && data.elenco.length
         ? `Elenco de ${modalidade.toUpperCase()}: ${data.elenco.join(", ")}`
-        : `Não encontrei elenco cadastrado para ${modalidade} 😕. Que tal descobrir as modalidades disponíveis? Use /modalidades para ver todas as opções e depois tente, por exemplo: /elenco cs2 🚀`;
+        : `Não encontrei elenco cadastrado para ${modalidade} 😕. Que tal descobrir as modalidades disponíveis? Use /modalidades para ver todas as opções e depois tente, por exemplo: /elenco csgo2 🚀`;
     } catch (err) {
       console.error("Erro ao buscar elenco:", err);
       return "Erro ao buscar elenco. Tente novamente mais tarde.";
@@ -235,8 +235,8 @@ export async function botResponder(msg) {
 
   // Comandos interativos exclusivos
   if (texto.startsWith("/elenco")) {
-    // Corrige modalidade padrão para 'cs2' (não existe mais 'csgo')
-    const mod = texto.split(" ")[1] || "cs2";
+    // Corrige modalidade padrão para 'csgo2' (não existe mais 'csgo')
+    const mod = texto.split(" ")[1] || "csgo2";
     return await getElenco(mod);
   }
 
@@ -265,8 +265,8 @@ export async function botResponder(msg) {
   }
 
   if (texto.startsWith("/curiosidades")) {
-    // Corrige modalidade padrão para 'cs2' (não existe mais 'csgo')
-    const mod = texto.split(" ")[1] || "cs2";
+    // Corrige modalidade padrão para 'csgo2' (não existe mais 'csgo')
+    const mod = texto.split(" ")[1] || "csgo2";
     return (async () => {
       try {
         const res = await fetch(
@@ -303,7 +303,7 @@ export async function botResponder(msg) {
         return "Nenhuma modalidade cadastrada no momento. Tente novamente mais tarde ou explore outros comandos como /elenco!";
       return `Modalidades disponíveis: ${data.modalidades
         .map((m) => m.toUpperCase())
-        .join(", ")}\n\nExemplo: /elenco cs2`;
+        .join(", ")}\n\nExemplo: /elenco csgo2`;
     } catch (err) {
       console.error("Erro ao buscar modalidades:", err);
       return "Erro ao buscar modalidades. Tente novamente mais tarde!";
@@ -407,10 +407,10 @@ export async function botResponder(msg) {
     window._furiaEnquete = {
       ativo: true,
       pergunta: "Qual modalidade você mais curte?",
-      opcoes: ["1) CS2", "2) Valorant", "3) LoL", "4) Rocket League"],
+      opcoes: ["1) csgo2", "2) Valorant", "3) LoL", "4) Rocket League"],
       votos: {},
     };
-    return "ENQUETE NOVA!\nQual modalidade você mais curte?\n1) CS2\n2) Valorant\n3) LoL\n4) Rocket League\n\nVote respondendo com o número!";
+    return "ENQUETE NOVA!\nQual modalidade você mais curte?\n1) csgo2\n2) Valorant\n3) LoL\n4) Rocket League\n\nVote respondendo com o número!";
   }
 
   if (

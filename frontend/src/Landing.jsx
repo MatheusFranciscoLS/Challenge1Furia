@@ -48,7 +48,7 @@ export default function Landing() {
             <li>Notícias, eventos e novidades da FURIA</li>
             <li>Interação com o <b>Torcida Bot</b> para dúvidas e curiosidades</li>
             <li>Recados e mural de mensagens</li>
-            <li>Suporte a várias modalidades: CS2, Valorant, FIFA, LOL e mais</li>
+            <li>Suporte a várias modalidades: csgo2, Valorant, FIFA, LOL e mais</li>
           </ul>
         </section>
         <section style={{marginBottom:34}}>

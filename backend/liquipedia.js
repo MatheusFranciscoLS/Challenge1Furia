@@ -4,7 +4,7 @@ const cheerio = require('cheerio');
 
 // Mapeamento de URLs da Liquipedia para cada modalidade
 const MODALIDADE_URLS = {
-  cs2: 'https://liquipedia.net/counterstrike/FURIA_Esports',
+  csgo2: 'https://liquipedia.net/counterstrike/FURIA_Esports',
   csgo: 'https://liquipedia.net/counterstrike/FURIA_Esports',
   cs: 'https://liquipedia.net/counterstrike/FURIA_Esports',
   valorant: 'https://liquipedia.net/valorant/FURIA',

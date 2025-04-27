@@ -4,7 +4,7 @@
  */
 const modalidadeMap = {
   'apex': ['apex', 'apex legends'],
-  'cs2': ['cs2', 'csgo', 'cs:go', 'counter strike', 'counter-strike', 'cs'],
+  'csgo2': ['csgo2', 'csgo', 'cs:go', 'counter strike', 'counter-strike', 'cs'],
   'futebol7': ['futebol7', 'futebol 7', 'fut7', 'seven-a-side', 'football7', 'futebol de 7'],
   'lol': ['lol', 'league of legends', 'league', 'l.o.l.'],
   'pubg': ['pubg', 'playerunknown', 'playerunknown battlegrounds'],

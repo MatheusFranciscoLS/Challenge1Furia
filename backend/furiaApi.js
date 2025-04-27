@@ -20,7 +20,7 @@ app.use(express.json());
  * @type {Object.<string, string[]>}
  */
 const elencos = {
-  'cs2': ['arT', 'yuurih', 'KSCERATO', 'chelo', 'saffee'],
+  'csgo2': ['arT', 'yuurih', 'KSCERATO', 'chelo', 'saffee'],
   'valorant': ['Mazin', 'QCK', 'Khalil', 'mwzera', 'Quick'],
   'lol': ['FNB', 'Croc', 'Envy', 'Trigo', 'RedBert'],
   'rocketleague': ['CaioTG1', 'Card', 'Lostt'],
@@ -35,7 +35,7 @@ const elencos = {
  * @type {Array<{modalidade: string, adversario: string, data: string, hora: string, torneio: string}>}
  */
 const jogos = [
-  { modalidade: 'cs2', adversario: 'NAVI', data: '2025-05-01', hora: '18:00', torneio: 'Major' },
+  { modalidade: 'csgo2', adversario: 'NAVI', data: '2025-05-01', hora: '18:00', torneio: 'Major' },
   { modalidade: 'valorant', adversario: 'LOUD', data: '2025-05-02', hora: '20:00', torneio: 'Champions' },
   { modalidade: 'rainbowsix', adversario: 'Liquid', data: '2025-05-03', hora: '17:00', torneio: 'Brasileirão R6' },
   { modalidade: 'apex', adversario: 'LOUD', data: '2025-05-06', hora: '20:00', torneio: 'ALGS' },
@@ -50,7 +50,7 @@ const jogos = [
  * @type {Array<{modalidade: string, resultado: string, data: string}>}
  */
 const placares = [
-  { modalidade: 'cs2', resultado: 'FURIA 2 x 1 Imperial', data: '2025-04-20' },
+  { modalidade: 'csgo2', resultado: 'FURIA 2 x 1 Imperial', data: '2025-04-20' },
   { modalidade: 'valorant', resultado: 'FURIA 13x11 LOUD', data: '2025-04-19' },
   { modalidade: 'rainbowsix', resultado: 'FURIA 7x5 Liquid', data: '2025-04-18' },
   { modalidade: 'apex', resultado: 'FURIA Top 2', data: '2025-04-15' },

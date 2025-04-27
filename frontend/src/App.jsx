@@ -218,10 +218,39 @@ function App() {
 
   // Placeholder de eventos (em breve: integração real)
   const eventFeed = [
-    { icon: '🔥', text: 'FURIA venceu o pistol round!' },
-    { icon: '💥', text: 'KSCERATO fez um clutch 1v3!' },
-    { icon: '🎯', text: 'arT abriu o bombsite com entry kill.' },
-  ];
+  // Apex Legends
+  { icon: '🪂', text: 'FURIA fez um drop perfeito em Fragment East!', modalidade: 'apex' },
+  { icon: '🔫', text: 'Player FURIA eliminou 3 squads!', modalidade: 'apex' },
+  { icon: '🏆', text: 'FURIA top 1 na partida!', modalidade: 'apex' },
+  // CS:GO2
+  { icon: '🔥', text: 'FURIA venceu o pistol round!', modalidade: 'csgo2' },
+  { icon: '💥', text: 'KSCERATO fez um clutch 1v3!', modalidade: 'csgo2' },
+  { icon: '🎯', text: 'arT abriu o bombsite com entry kill.', modalidade: 'csgo2' },
+  // Fut7
+  { icon: '⚽', text: 'FURIA marcou um golaço de falta!', modalidade: 'fut7' },
+  { icon: '🧤', text: 'Defesa milagrosa do goleiro FURIA!', modalidade: 'fut7' },
+  { icon: '🥅', text: 'Jogo terminou em vitória nos pênaltis!', modalidade: 'fut7' },
+  // LoL
+  { icon: '🐉', text: 'FURIA garantiu o Dragão Ancião!', modalidade: 'lol' },
+  { icon: '🏆', text: 'FURIA venceu uma teamfight decisiva!', modalidade: 'lol' },
+  { icon: '🦁', text: 'FNB fez um pentakill!', modalidade: 'lol' },
+  // PUBG
+  { icon: '🎯', text: 'Sniper FURIA acertou um tiro a 400m!', modalidade: 'pubg' },
+  { icon: '🚗', text: 'Equipe FURIA atropelou adversários!', modalidade: 'pubg' },
+  { icon: '🥇', text: 'FURIA conquistou o Chicken Dinner!', modalidade: 'pubg' },
+  // Rainbow Six
+  { icon: '🛡️', text: 'FURIA segurou o bombsite sozinha!', modalidade: 'rainbowsix' },
+  { icon: '💣', text: 'Double kill de granada no Rainbow Six!', modalidade: 'rainbowsix' },
+  { icon: '🔫', text: 'Ace do jogador FURIA na defesa!', modalidade: 'rainbowsix' },
+  // Valorant
+  { icon: '⚡', text: 'FURIA garantiu o Spike plantado!', modalidade: 'valorant' },
+  { icon: '🔫', text: 'qck fez um ace incrível!', modalidade: 'valorant' },
+  { icon: '🛡️', text: 'Khalil segurou o bombsite sozinho.', modalidade: 'valorant' },
+  // Rocket League
+  { icon: '🚗', text: 'FURIA marcou um gol de bicicleta!', modalidade: 'rocketleague' },
+  { icon: '🥅', text: 'Defesa milagrosa no último segundo!', modalidade: 'rocketleague' },
+  { icon: '⚽', text: 'Duplo toque aéreo impressionante!', modalidade: 'rocketleague' },
+];
 
   // Estados para quiz/enquete
   const [showQuiz, setShowQuiz] = useState(false);

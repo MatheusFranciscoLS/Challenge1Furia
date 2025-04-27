@@ -77,8 +77,8 @@ app.get('/api/live-status', async (req, res) => {
   const modalidade = (req.query.modalidade || '').toLowerCase();
   const pandascoreToken = req.query.token || process.env.PANDASCORE_TOKEN;
   try {
-    // CS2, Valorant e LoL via Pandascore
-    if (["cs2", "valorant", "lol"].includes(modalidade)) {
+    // csgo2, Valorant e LoL via Pandascore
+    if (["csgo2", "valorant", "lol"].includes(modalidade)) {
       try {
         const statusPanda = await getFuriaLiveStatusPandascore(modalidade, pandascoreToken);
         if (statusPanda && statusPanda.match && statusPanda.status) return res.status(200).json(statusPanda);

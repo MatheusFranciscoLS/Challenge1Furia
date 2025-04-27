@@ -42,7 +42,7 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
 
 | Comando                       | O que faz                                             | Exemplo                |
 |-------------------------------|-------------------------------------------------------|------------------------|
-| `/elenco [modalidade]`        | Mostra elenco de uma modalidade                       | `/elenco cs2`          |
+| `/elenco [modalidade]`        | Mostra elenco de uma modalidade                       | `/elenco csgo2`          |
 | `/estatisticas [nick]`        | Estatísticas de um jogador                            | `/estatisticas art`    |
 | `/modalidades`                | Mostra modalidades disponíveis                        | `/modalidades`         |
 | `/curiosidades [modalidade]`  | Curiosidades sobre uma modalidade                     | `/curiosidades valorant`|

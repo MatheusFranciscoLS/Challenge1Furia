@@ -9,7 +9,7 @@
 export const furiaModalidades = [
   { key: "all", label: "Todas" },            // Exibe todos os eventos/modalidades
   { key: "apex", label: "Apex Legends" },    // Battle Royale
-  { key: "cs2", label: "CS:GO 2" },          // Counter-Strike 2
+  { key: "csgo2", label: "CS:GO2" },          // Counter-Strike 2
   { key: "fut7", label: "Fut7" },            // Futebol de 7
   { key: "lol", label: "LoL" },              // League of Legends
   { key: "pubg", label: "PUBG" },            // Battle Royale
