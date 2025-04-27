@@ -149,7 +149,17 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
                 }}>
                   <span
                     className="furia-recado-text"
-                    style={{display:'block',textAlign:'left',marginBottom:0}}
+                    style={{
+                      display:'block',
+                      textAlign:'left',
+                      marginBottom:0,
+                      wordBreak:'break-word',
+                      whiteSpace:'pre-wrap',
+                      overflowWrap:'break-word',
+                      maxHeight: '120px',
+                      overflowY: 'auto',
+                      lineHeight: 1.28,
+                    }}
                     dangerouslySetInnerHTML={{ __html: r.text.replace(/(:[^\s:]+:)/g, '<span>$1</span>') }}
                   />
                   <span className="furia-recado-time" style={{
