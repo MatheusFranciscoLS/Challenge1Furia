@@ -46,20 +46,40 @@ function App() {
   useEffect(() => {
     const apiUrl = import.meta.env.VITE_API_URL;
     if (!apiUrl) {
-      setStatus(null);
+      setStatus('indisponivel');
+      if (process.env.NODE_ENV === 'production') {
+        // Log para Vercel
+        console.warn('VITE_API_URL não definida no ambiente de produção!');
+      }
       return;
     }
     fetch(apiUrl + '/api/live-status')
       .then(async (res) => {
-        // Se não for JSON válido, retorna null
         try {
           return await res.json();
-        } catch {
+        } catch (err) {
+          if (process.env.NODE_ENV === 'production') {
+            console.error('Resposta não é JSON válido:', err);
+          }
           return null;
         }
       })
-      .then(setStatus)
-      .catch(() => setStatus(null));
+      .then((data) => {
+        if (!data) {
+          setStatus('indisponivel');
+          if (process.env.NODE_ENV === 'production') {
+            console.warn('API /api/live-status retornou vazio ou inválido');
+          }
+        } else {
+          setStatus(data);
+        }
+      })
+      .catch((err) => {
+        setStatus('indisponivel');
+        if (process.env.NODE_ENV === 'production') {
+          console.error('Erro ao buscar /api/live-status:', err);
+        }
+      });
   }, []);
 
   // Auth listener
@@ -243,6 +263,13 @@ function App() {
           <h1>FURIA Fan Chat</h1>
           <p>Bem-vindo ao chat oficial dos fãs da FURIA!</p>
           <span className="furia-slogan">#FURIAÉNOSSA | Paixão e Garra nos Esportes</span>
+          {/* Fallback visual para status da API */}
+          {status === 'indisponivel' && (
+            <div style={{color:'#FFD600',background:'#23242b',padding:'7px 13px',borderRadius:8,marginTop:10,fontWeight:600,fontSize:'1.04em'}}>
+              <span>⚠️ Status da API indisponível no momento.</span>
+              <span style={{fontSize:'0.98em',marginLeft:8}}>Verifique variáveis no Vercel.</span>
+            </div>
+          )}
         </div>
         <div className="furia-content-row">
           {!isMobile && (
