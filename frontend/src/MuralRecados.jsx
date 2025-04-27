@@ -14,16 +14,17 @@ function formatTime(ts) {
   if (typeof ts === 'object' && ts.seconds) {
     date = new Date(ts.seconds * 1000);
   } else if (typeof ts === 'number') {
-    // epoch em ms ou s
     date = ts > 1e12 ? new Date(ts) : new Date(ts * 1000);
   } else if (typeof ts === 'string' && !isNaN(Number(ts))) {
-    // string numérica
     const num = Number(ts);
     date = num > 1e12 ? new Date(num) : new Date(num * 1000);
   } else {
     date = new Date();
   }
-  return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  // Retorna apenas dia/mês
+  const dia = String(date.getDate()).padStart(2, '0');
+  const mes = String(date.getMonth() + 1).padStart(2, '0');
+  return `${dia}/${mes}`;
 }
 
 /**
@@ -134,7 +135,7 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
                   <span style={{fontWeight:700, color:isTopFan?'#FFD600':'#fff', letterSpacing:0.2, fontSize:isTopFan?'1.09em':'0.97em', cursor: isTopFan?'pointer':'inherit'}} title={isTopFan?`Top Fã: ${r.user}`:r.user}>{r.user}</span>
 
                 </div>
-                {/* Balão da mensagem com horário no rodapé */}
+                {/* Balão da mensagem sem horário */}
                 <div style={{
                   background:'#181A20',
                   borderRadius:12,
@@ -162,18 +163,20 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
                     }}
                     dangerouslySetInnerHTML={{ __html: r.text.replace(/(:[^\s:]+:)/g, '<span>$1</span>') }}
                   />
-                  <span className="furia-recado-time" style={{
-                    display:'block',
-                    textAlign:'right',
-                    fontSize:'0.87em',
-                    fontWeight:500,
-                    color:'#FFD60099',
-                    marginTop:2,
-                    textShadow:'none',
-                    letterSpacing:0.09,
-                    lineHeight:1.1
-                  }}>{formatTime(r.ts)}</span>
                 </div>
+                {/* Horário abaixo do avatar, alinhado à esquerda */}
+                <span className="furia-recado-time" style={{
+                  display:'block',
+                  textAlign:'left',
+                  fontSize:'0.87em',
+                  fontWeight:500,
+                  color:'#FFD60099',
+                  marginTop:0,
+                  marginLeft:2,
+                  textShadow:'none',
+                  letterSpacing:0.09,
+                  lineHeight:1.1
+                }}>{formatTime(r.ts)}</span>
               </div>
             </div>
           );

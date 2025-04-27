@@ -165,7 +165,7 @@ function App() {
             uid: 'furia-bot',
             channel: channel,
           });
-          setToast({ type: 'info', message: 'O bot respondeu sua dúvida!', visible: true });
+  
         }
       }
     } catch (err) {
