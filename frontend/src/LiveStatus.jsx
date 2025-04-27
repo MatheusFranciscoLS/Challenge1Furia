@@ -44,9 +44,9 @@ export default function LiveStatus({ status }) {
         style={{
           background: "#181818",
           color: "#fff",
-          padding: "1.5em",
+          padding: "10px",
           borderRadius: 12,
-          marginBottom: 20,
+          marginBottom: 10,
           boxShadow: "0 2px 12px #0002",
           borderLeft: `6px solid #444` ,
           maxWidth: 590,
@@ -63,8 +63,6 @@ export default function LiveStatus({ status }) {
             flexDirection: 'column',
             alignItems: 'center',
             gap: 8,
-            margin: '18px 0 4px 0',
-            padding: '6px 0 2px 0',
             width: '100%'
           }}>
             <div style={{

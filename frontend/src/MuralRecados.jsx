@@ -74,13 +74,13 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
   return (
     <div className="furia-mural-recados">
       {isAdmin && (
-        <form onSubmit={enviarRecado} style={{ display: 'flex', gap: 0, marginBottom: 8, width: '100%' }}>
+        <form onSubmit={enviarRecado} style={{ display: 'flex', gap: 0, marginBottom: 14, width: '100%', background:'#23242b', borderRadius:14, boxShadow:'0 2px 12px #FFD60022', padding:'4px 6px' }}>
           <input
             className="furia-input"
-            style={{ flex: 1, minWidth: 0, borderTopRightRadius: 0, borderBottomRightRadius: 0, borderRight: 'none' }}
+            style={{ flex: 1, minWidth: 0, borderTopRightRadius: 0, borderBottomRightRadius: 0, borderRight: 'none', background:'#181A20', color:'#FFD600', border:'none', fontWeight:600, fontSize:'1.07em', padding:'12px 16px' }}
             value={recado}
             onChange={e => setRecado(e.target.value)}
-            placeholder="Deixe seu salve!"
+            placeholder="Deixe seu recado para a FURIA!"
             maxLength={80}
             disabled={!user}
             autoComplete="off"
@@ -88,36 +88,51 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
           <button
             type="submit"
             className="furia-btn"
-            style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0, minWidth: 68, fontWeight: 600, fontSize: '1em', height: 38 }}
+            style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0, minWidth: 76, fontWeight: 700, fontSize: '1.08em', height: 44, background:'#FFD600', color:'#181A20', boxShadow:'0 2px 8px #FFD60044', letterSpacing:0.2, border:'none', transition:'background 0.2s' }}
             disabled={!recado.trim() || !user || enviando}
           >{enviando ? 'Enviando...' : 'Enviar'}</button>
         </form>
       )}
-      <div className="furia-recados-list">
+      <div className="furia-recados-list" style={{display:'flex',flexDirection:'column',gap:10}}>
         {recados.map(r => {
           const badge = r.uid && badgeCounts[r.uid] !== undefined
             ? <span style={{marginLeft:2,filter:'drop-shadow(0 1px 4px #FFD60066)'}}><Badges count={badgeCounts[r.uid]} /></span>
             : null;
+          const isTopFan = topFanUid && r.uid === topFanUid;
           return (
-            <div key={r.id} className="furia-recado-item">
+            <div key={r.id} className="furia-recado-item" style={{
+              background: isTopFan ? 'linear-gradient(90deg,#FFD60033 60%,#23242b 100%)' : '#23242b',
+              borderRadius: 16,
+              boxShadow: isTopFan ? '0 2px 12px #FFD60055' : '0 1px 4px #0004',
+              border: isTopFan ? '2px solid #FFD600' : '1.5px solid #FFD60022',
+              padding: isTopFan ? '13px 18px 13px 10px' : '10px 14px 10px 8px',
+              display:'flex', alignItems:'center', gap:12, marginBottom:4, minHeight:54, animation:'fadeInRecado 0.6s cubic-bezier(.62,-0.01,.47,1.01)'
+            }}>
+              {r.photo && <img src={r.photo} alt={r.user} style={{width:36,height:36,borderRadius:'50%',border:'2px solid #FFD60033',objectFit:'cover',marginRight:2,background:'#111'}} />}
               <div style={{ flex: 1, minWidth: 0 }}>
-                <span className="furia-recado-user" style={{display:'flex',alignItems:'center',gap:6,minHeight:24,marginBottom:8}}>
-                  {topFanUid && r.uid === topFanUid && (
-                    <span style={{fontSize:'1.16em',marginRight:2,filter:'drop-shadow(0 1px 5px #FFD60088)'}}>🥇</span>
+                <span className="furia-recado-user" style={{display:'flex',alignItems:'center',gap:7,minHeight:24,marginBottom:7}}>
+                  {isTopFan && (
+                    <span style={{fontSize:'1.25em',marginRight:2,filter:'drop-shadow(0 1px 5px #FFD60088)'}} title="Top Fã 🥇">🥇</span>
                   )}
-                  <span style={{fontWeight:600, color:'#FFD600', letterSpacing:0.2}}>{r.user}</span>
+                  <span style={{fontWeight:700, color:isTopFan?'#FFD600':'#fff', letterSpacing:0.2, fontSize:isTopFan?'1.12em':'1em', cursor: isTopFan?'pointer':'inherit'}} title={isTopFan?`Top Fã: ${r.user}`:r.user}>{r.user}</span>
                   {badge}
                 </span>
                 <span
                   className="furia-recado-text"
-                  style={{display:'block',textAlign:'left',padding:'10px 16px 10px 16px',background:'#23242b',borderRadius:12,maxWidth:'80%',color:'#fff',fontSize:'1.06em',marginBottom:3,boxShadow:'0 1px 8px #0002'}}
+                  style={{display:'block',textAlign:'left',padding:'10px 16px 10px 16px',background:'#181A20',borderRadius:12,maxWidth:'94%',color:'#FFD600',fontSize:'1.09em',marginBottom:3,boxShadow:'0 1px 8px #FFD60011'}}
                   dangerouslySetInnerHTML={{ __html: r.text.replace(/(:[^\s:]+:)/g, '<span>$1</span>') }}
                 />
-                <span className="furia-recado-time" style={{fontSize:'1.03em',fontWeight:700,color:'#FFD600',marginLeft:6,textShadow:'0 1px 4px #0008'}}>{formatTime(r.ts)}</span>
+                <span className="furia-recado-time" style={{fontSize:'1.04em',fontWeight:700,color:'#FFD600',marginLeft:6,textShadow:'0 1px 4px #0008'}}>{formatTime(r.ts)}</span>
               </div>
             </div>
           );
         })}
+        <style>{`
+        @keyframes fadeInRecado {
+          from { opacity: 0; transform: translateY(14px) scale(0.97); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        `}</style>
       </div>
     </div>
   );
