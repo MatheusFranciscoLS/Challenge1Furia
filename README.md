@@ -4,8 +4,8 @@
 ![React](https://img.shields.io/badge/frontend-react-blue?logo=react)
 ![Firebase](https://img.shields.io/badge/backend-firebase-orange?logo=firebase)
 
-Bem-vindo ao chat interativo de fãs da FURIA! 🦁🔥
-Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e recebe informações em tempo real do time de CS da FURIA.
+Bem-vindo ao chat interativo de fãs da FURIA GG! 🦁🔥
+Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e recebe informações em tempo real de todas as modalidades da FURIA GG (CS, Valorant, Rocket League, Rainbow Six, Kings League, e muito mais).
 
 [🔗 Acesse a versão online (Vercel)](https://challenge1-furia.vercel.app)
 
