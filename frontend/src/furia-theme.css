@@ -1211,6 +1211,18 @@ body {
   width: 100%;
   max-width: 590px;
 }
+
+.furia-topfans-card {
+  background: #23242b;
+  border-radius: 14px;
+  padding: 22px 18px;
+  box-shadow: 0 4px 24px #0008;
+  margin-bottom: 28px;
+  border: 1.5px solid #FFD60033;
+  width: 300px;
+  max-width: 300px;
+}
+
 .furia-mainchat {
   flex: 2 1 540px;
   min-width: 340px;

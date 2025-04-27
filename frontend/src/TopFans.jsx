@@ -29,7 +29,7 @@ export default function TopFans({ messages }) {
   const medals = ['🥇', '🥈', '🥉'];
 
   return (
-    <div className="furia-card" style={{marginBottom:16, background:'#181A20', color:'#FFD600'}}>
+    <div className="furia-topfans-card" style={{marginBottom:16, background:'#181A20', color:'#FFD600'}}>
       <b>Ranking dos Fãs Mais Ativos</b>
       {ranking.length === 0 ? (
         <div style={{marginTop:8, color:'#fff'}}>Sem mensagens ainda neste canal.</div>

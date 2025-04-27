@@ -466,15 +466,7 @@ export default function MainChat({ user, messages, handleSend, msg, setMsg, hand
           {window.location.hash === '#bot-ajuda' && (
             <BotAjudaModalidadesWrapper msg={msg} setMsg={setMsg} user={user} modalidade={modalidade} setModalidade={setModalidade} />
           )}
-          {/* Botões de acesso rápido para Quiz e Enquete */}
-          <div style={{display:'flex',gap:12,marginBottom:14}}>
-            <button type="button" className="furia-btn" style={{background:'#FFD600',color:'#181A20',fontWeight:700,borderRadius:8,padding:'7px 18px',border:'2px solid #FFD600',fontSize:'1em',boxShadow:'0 1px 6px #FFD60033'}} onClick={()=>setShowQuiz(true)}>
-              🧠 Iniciar Quiz
-            </button>
-            <button type="button" className="furia-btn" style={{background:'#FFD600',color:'#181A20',fontWeight:700,borderRadius:8,padding:'7px 18px',border:'2px solid #FFD600',fontSize:'1em',boxShadow:'0 1px 6px #FFD60033'}} onClick={()=>setShowEnquete(true)}>
-              📊 Responder Enquete
-            </button>
-          </div>
+
           <QuizEnqueteModal open={showQuiz} onClose={()=>setShowQuiz(false)} title="Quiz FURIA">
             <QuizContent />
           </QuizEnqueteModal>

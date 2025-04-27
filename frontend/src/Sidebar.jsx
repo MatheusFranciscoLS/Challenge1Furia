@@ -4,6 +4,7 @@ import Badges from "./Badges";
 import MuralRecados from "./MuralRecados";
 import JogosAgendaModal from "./JogosAgendaModal";
 import PlacaresModal from "./PlacaresModal";
+import SidebarQuizEnqueteButtons from "./SidebarQuizEnqueteButtons";
 
 export default function Sidebar({ channel, setChannel, topFans, user }) {
   const [openJogos, setOpenJogos] = useState(false);
@@ -41,6 +42,8 @@ export default function Sidebar({ channel, setChannel, topFans, user }) {
         </button>
         <JogosAgendaModal open={openJogos} onClose={() => setOpenJogos(false)} />
         <PlacaresModal open={openPlacares} onClose={() => setOpenPlacares(false)} />
+        {/* Botões Quiz/Enquete */}
+        <SidebarQuizEnqueteButtons onQuiz={typeof onQuiz === 'function' ? onQuiz : undefined} onEnquete={typeof onEnquete === 'function' ? onEnquete : undefined} />
       </div>
 
       <div className="furia-sidebar-section">

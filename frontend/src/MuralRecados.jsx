@@ -10,7 +10,19 @@ import Badges from "./Badges";
  */
 function formatTime(ts) {
   if (!ts) return "";
-  const date = ts.seconds ? new Date(ts.seconds * 1000) : new Date();
+  let date;
+  if (typeof ts === 'object' && ts.seconds) {
+    date = new Date(ts.seconds * 1000);
+  } else if (typeof ts === 'number') {
+    // epoch em ms ou s
+    date = ts > 1e12 ? new Date(ts) : new Date(ts * 1000);
+  } else if (typeof ts === 'string' && !isNaN(Number(ts))) {
+    // string numérica
+    const num = Number(ts);
+    date = num > 1e12 ? new Date(num) : new Date(num * 1000);
+  } else {
+    date = new Date();
+  }
   return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 }
 
@@ -105,24 +117,49 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
               borderRadius: 16,
               boxShadow: isTopFan ? '0 2px 12px #FFD60055' : '0 1px 4px #0004',
               border: isTopFan ? '2px solid #FFD600' : '1.5px solid #FFD60022',
-              padding: isTopFan ? '13px 18px 13px 10px' : '10px 14px 10px 8px',
-              display:'flex', alignItems:'center', gap:12, marginBottom:4, minHeight:54, animation:'fadeInRecado 0.6s cubic-bezier(.62,-0.01,.47,1.01)'
+              padding: isTopFan ? '11px 16px 11px 9px' : '8px 10px 8px 6px',
+              display:'flex', alignItems:'flex-start', gap:10, marginBottom:2, minHeight:48, animation:'fadeInRecado 0.6s cubic-bezier(.62,-0.01,.47,1.01)'
             }}>
-              {r.photo && <img src={r.photo} alt={r.user} style={{width:36,height:36,borderRadius:'50%',border:'2px solid #FFD60033',objectFit:'cover',marginRight:2,background:'#111'}} />}
+              {r.photo && <img src={r.photo} alt={r.user} style={{width:32,height:32,borderRadius:'50%',border:'2px solid #FFD60033',objectFit:'cover',marginRight:2,background:'#111'}} />}
               <div style={{ flex: 1, minWidth: 0 }}>
-                <span className="furia-recado-user" style={{display:'flex',alignItems:'center',gap:7,minHeight:24,marginBottom:7}}>
+                {/* Nome do usuário e badge, acima do balão */}
+                <div style={{display:'flex',alignItems:'center',gap:7,minHeight:24,marginBottom:2}}>
                   {isTopFan && (
-                    <span style={{fontSize:'1.25em',marginRight:2,filter:'drop-shadow(0 1px 5px #FFD60088)'}} title="Top Fã 🥇">🥇</span>
+                    <span style={{fontSize:'1.15em',marginRight:2,filter:'drop-shadow(0 1px 5px #FFD60088)'}} title="Top Fã 🥇">🥇</span>
                   )}
-                  <span style={{fontWeight:700, color:isTopFan?'#FFD600':'#fff', letterSpacing:0.2, fontSize:isTopFan?'1.12em':'1em', cursor: isTopFan?'pointer':'inherit'}} title={isTopFan?`Top Fã: ${r.user}`:r.user}>{r.user}</span>
+                  <span style={{fontWeight:700, color:isTopFan?'#FFD600':'#fff', letterSpacing:0.2, fontSize:isTopFan?'1.09em':'0.97em', cursor: isTopFan?'pointer':'inherit'}} title={isTopFan?`Top Fã: ${r.user}`:r.user}>{r.user}</span>
                   {badge}
-                </span>
-                <span
-                  className="furia-recado-text"
-                  style={{display:'block',textAlign:'left',padding:'10px 16px 10px 16px',background:'#181A20',borderRadius:12,maxWidth:'94%',color:'#FFD600',fontSize:'1.09em',marginBottom:3,boxShadow:'0 1px 8px #FFD60011'}}
-                  dangerouslySetInnerHTML={{ __html: r.text.replace(/(:[^\s:]+:)/g, '<span>$1</span>') }}
-                />
-                <span className="furia-recado-time" style={{fontSize:'1.04em',fontWeight:700,color:'#FFD600',marginLeft:6,textShadow:'0 1px 4px #0008'}}>{formatTime(r.ts)}</span>
+                </div>
+                {/* Balão da mensagem com horário no rodapé */}
+                <div style={{
+                  background:'#181A20',
+                  borderRadius:12,
+                  maxWidth:'94%',
+                  color:'#FFD600',
+                  fontSize:'1.05em',
+                  marginBottom:2,
+                  boxShadow:'0 1px 8px #FFD60011',
+                  padding:'10px 16px 4px 16px',
+                  position:'relative',
+                  minHeight:28
+                }}>
+                  <span
+                    className="furia-recado-text"
+                    style={{display:'block',textAlign:'left',marginBottom:0}}
+                    dangerouslySetInnerHTML={{ __html: r.text.replace(/(:[^\s:]+:)/g, '<span>$1</span>') }}
+                  />
+                  <span className="furia-recado-time" style={{
+                    display:'block',
+                    textAlign:'right',
+                    fontSize:'0.87em',
+                    fontWeight:500,
+                    color:'#FFD60099',
+                    marginTop:2,
+                    textShadow:'none',
+                    letterSpacing:0.09,
+                    lineHeight:1.1
+                  }}>{formatTime(r.ts)}</span>
+                </div>
               </div>
             </div>
           );
