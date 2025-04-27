@@ -53,7 +53,32 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
 
 > Mensagens de erro são sempre orientativas, sugerindo o próximo passo para o fã.
 
+---
+
+| Comando                       | O que faz                                             | Exemplo                |
+|-------------------------------|-------------------------------------------------------|------------------------|
+| `/elenco [modalidade]`        | Mostra elenco de uma modalidade                       | `/elenco cs2`          |
+| `/estatisticas [nick]`        | Estatísticas de um jogador                            | `/estatisticas art`    |
+| `/modalidades`                | Mostra modalidades disponíveis                        | `/modalidades`         |
+| `/curiosidades [modalidade]`  | Curiosidades sobre uma modalidade                     | `/curiosidades valorant`|
+| `/help` ou `/comandos`        | Lista todos os comandos                               | `/help`                |
+
+> ⚡ **Agora a agenda de jogos e os placares recentes são acessados pelos botões na barra lateral do chat!**
+> Basta clicar em "Agenda de Jogos" ou "Placares Recentes" para abrir os modais com as informações atualizadas.
+
+> Mensagens de erro são sempre orientativas, sugerindo o próximo passo para o fã.
+
 ## 🖼️ Demonstração
+
+- Prints ou GIFs mostrando:
+  - Tela de login com botões "Entrar com Google" e "Entrar como Anônimo"
+  - Chat em funcionamento após login
+  - Logout retornando à tela de login
+  - Abertura dos modais de agenda de jogos e placares recentes
+  - Interação do fã com o bot e comandos
+- [Link para vídeo de demonstração (YouTube/Drive)](URL_DO_VIDEO)
+
+---
 
 - Prints ou GIFs mostrando:
   - Tela de login com botões "Entrar com Google" e "Entrar como Anônimo"
@@ -79,6 +104,24 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
    - `cd frontend && npm run dev`
 5. (Opcional) Rode o backend localmente se desejar:
    - `cd backend && npm start`
+
+#### Observações importantes
+- **Login obrigatório:** Você só acessa o chat após autenticação (Google ou Anônimo).
+- **Popups bloqueados:** Se o botão "Entrar com Google" não abrir, desative bloqueadores de popup/extensões para localhost.
+- **Logout:** Ao sair, você retorna automaticamente à tela de login.
+- **Erros 400 ou ERR_BLOCKED_BY_CLIENT** ao sair são normais e não afetam o funcionamento.
+
+---
+
+### Pré-requisitos
+- Node.js >= 18
+- Conta no Firebase ([crie aqui](https://console.firebase.google.com/))
+
+### Passos
+1. Clone o repositório
+2. Instale as dependências em `/frontend` e `/backend`
+3. Configure o Firebase (`/frontend/.env.example`)
+4. Rode `npm start` em cada pasta
 
 #### Observações importantes
 - **Login obrigatório:** Você só acessa o chat após autenticação (Google ou Anônimo).
