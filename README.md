@@ -38,15 +38,6 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
 
 ---
 
-- Chat global em tempo real (Firebase)
-- Tela de login moderna: escolha entre Google ou Anônimo
-- Autenticação obrigatória: só usuários autenticados acessam o chat
-- Modais para agenda de jogos e placares recentes (acesso fácil pela interface)
-- Comandos inteligentes para fãs (veja abaixo)
-- Status de jogos ao vivo (mock)
-- Experiência reativa: após login, acesso imediato ao chat
-- Logout seguro: ao sair, retorna para a tela de login
-
 ## 💬 Comandos do Chat
 
 | Comando                       | O que faz                                             | Exemplo                |
