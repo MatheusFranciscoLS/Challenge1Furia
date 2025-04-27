@@ -39,7 +39,7 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
   const [enviando, setEnviando] = useState(false);
   async function enviarRecado(e) {
     e.preventDefault();
-    if (!recado.trim() || !user) return;
+    if (!recado.trim() || !user || !isAdmin) return;
     setEnviando(true);
     try {
       await addDoc(collection(db, "recados"), {
@@ -65,26 +65,34 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
     badgeCounts[r.uid] = fan ? fan.count : (r.count || recados.filter(x => x.uid === r.uid).length);
   });
 
+  // Defina aqui o UID ou email do admin
+  const ADMIN_UID = "admin-uid-aqui"; // Substitua pelo UID real do admin
+  const ADMIN_EMAIL = "matheusfran.ls@gmail.com"; // Email do admin atualizado
+
+  const isAdmin = user && (user.uid === ADMIN_UID || user.email === ADMIN_EMAIL);
+
   return (
     <div className="furia-mural-recados">
-      <form onSubmit={enviarRecado} style={{ display: 'flex', gap: 0, marginBottom: 8, width: '100%' }}>
-        <input
-          className="furia-input"
-          style={{ flex: 1, minWidth: 0, borderTopRightRadius: 0, borderBottomRightRadius: 0, borderRight: 'none' }}
-          value={recado}
-          onChange={e => setRecado(e.target.value)}
-          placeholder="Deixe seu salve!"
-          maxLength={80}
-          disabled={!user}
-          autoComplete="off"
-        />
-        <button
-          type="submit"
-          className="furia-btn"
-          style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0, minWidth: 68, fontWeight: 600, fontSize: '1em', height: 38 }}
-          disabled={!recado.trim() || !user || enviando}
-        >{enviando ? 'Enviando...' : 'Enviar'}</button>
-      </form>
+      {isAdmin && (
+        <form onSubmit={enviarRecado} style={{ display: 'flex', gap: 0, marginBottom: 8, width: '100%' }}>
+          <input
+            className="furia-input"
+            style={{ flex: 1, minWidth: 0, borderTopRightRadius: 0, borderBottomRightRadius: 0, borderRight: 'none' }}
+            value={recado}
+            onChange={e => setRecado(e.target.value)}
+            placeholder="Deixe seu salve!"
+            maxLength={80}
+            disabled={!user}
+            autoComplete="off"
+          />
+          <button
+            type="submit"
+            className="furia-btn"
+            style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0, minWidth: 68, fontWeight: 600, fontSize: '1em', height: 38 }}
+            disabled={!recado.trim() || !user || enviando}
+          >{enviando ? 'Enviando...' : 'Enviar'}</button>
+        </form>
+      )}
       <div className="furia-recados-list">
         {recados.map(r => {
           const badge = r.uid && badgeCounts[r.uid] !== undefined

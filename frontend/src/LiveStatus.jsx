@@ -49,7 +49,7 @@ export default function LiveStatus({ status }) {
           marginBottom: 20,
           boxShadow: "0 2px 12px #0002",
           borderLeft: `6px solid #444` ,
-          maxWidth: 400,
+          maxWidth: 590,
           opacity: 0.85
         }}
         aria-live="polite"

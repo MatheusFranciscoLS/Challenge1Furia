@@ -46,8 +46,8 @@ export default function MobileSidebarMenu({ channel, setChannel, topFans, user, 
         <div className="furia-mobile-section">
           <div className="furia-sidebar-label">Top Fãs</div>
           <ol className="furia-topfans-list">
-            {topFans.map(({ user, count, uid }, idx) => {
-              const medals = ['🥇','🥈','🥉','🎖️','🏅'];
+            {topFans.slice(0, 3).map(({ user, count, uid }, idx) => {
+              const medals = ['🥇','🥈','🥉'];
               const medal = medals[idx] || '';
               return (
                 <li key={uid} className={idx === 0 ? "top-fan-highlight" : ""} style={{display:'flex',alignItems:'center',gap:4}}>

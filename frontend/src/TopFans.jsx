@@ -17,8 +17,7 @@ export default function TopFans({ messages }) {
     counts[nome] = (counts[nome] || 0) + 1;
   });
   const ranking = Object.entries(counts)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 5);
+    .sort((a, b) => b[1] - a[1]);
 
   const medals = ['🥇', '🥈', '🥉', '🎖️', '🏅'];
 
@@ -28,8 +27,8 @@ export default function TopFans({ messages }) {
       {ranking.length === 0 ? (
         <div style={{marginTop:8, color:'#fff'}}>Sem mensagens ainda neste canal.</div>
       ) : (
-        <ol style={{margin:'8px 0 0 16px', padding:0}}>
-          {ranking.map(([user, count], idx) => {
+        <ol className="furia-topfans-list" style={{margin:'8px 0 0 16px', padding:0}}>
+          {ranking.slice(0, 3).map(([user, count], idx) => {
             // Busca badge e XP do localStorage (sincronizado com bot)
             let badges = '';
             let xp = '';

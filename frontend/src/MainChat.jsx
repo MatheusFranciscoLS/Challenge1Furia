@@ -516,35 +516,7 @@ export default function MainChat({ user, messages, handleSend, msg, setMsg, hand
 />
             </form>
           </div>
-          {/* Barra de ações rápidas: emojis + frases */}
-          <div className="furia-quick-actions-bar">
-            <div className="furia-stickers-bar">
-              {['🔥', '🐾', '😎', '🏆', '🦁'].map((sticker, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  className="furia-sticker-btn"
-                  onClick={() => setMsg(msg + sticker)}
-                  aria-label={`Adicionar ${sticker}`}
-                >
-                  {sticker}
-                </button>
-              ))}
-            </div>
-            <div className="furia-frases-bot-bar">
-              {(typeof getFrasesProntasPorModalidade === 'function' ? getFrasesProntasPorModalidade(modalidade || 'all') : getFrasesProntas()).map((frase, idx) => (
-                <button
-                  key={idx}
-                  type="button"
-                  className="furia-frase-btn"
-                  onClick={() => setMsg(frase)}
-                >
-                  {frase}
-                </button>
-              ))}
-            </div>
-            <div ref={chatEndRef}></div>
-          </div>
+
         </div>
       ) : null}
     </main>

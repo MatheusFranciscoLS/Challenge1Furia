@@ -47,7 +47,7 @@ export default function Sidebar({ channel, setChannel, topFans, user }) {
         <div className="furia-sidebar-section">
           <div className="furia-sidebar-label">Top Fãs</div>
           <ol className="furia-topfans-list">
-            {topFans.map(({ user, count, uid }, idx) => {
+            {topFans.slice(0, 3).map(({ user, count, uid }, idx) => {
               const medals = ['🥇','🥈','🥉','🎖️','🏅'];
               const medal = medals[idx] || '';
               return (
