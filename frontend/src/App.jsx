@@ -180,22 +180,32 @@ function App() {
     if (chatbox) chatbox.scrollTop = chatbox.scrollHeight;
   }, [messages]);
 
-  // Top fãs para sidebar
-  // Novo: ranking por UID, para garantir unicidade e nome/badge sincronizado
+  // Top fãs geral: ranking por UID considerando TODAS as mensagens
+  // Para isso, precisamos buscar todas as mensagens de todos os canais
+  const [allMessages, setAllMessages] = useState([]);
+  useEffect(() => {
+    const q = query(collection(db, 'messages'), orderBy('ts'));
+    const unsub = onSnapshot(q, (snap) => {
+      setAllMessages(snap.docs.map(doc => doc.data()));
+    });
+    return unsub;
+  }, []);
+
   const fanMap = {};
-  messages.forEach(m => {
+  allMessages.forEach(m => {
     if (!m.uid) return;
+    if (m.uid === 'furia-bot' || (m.user && m.user.trim().toLowerCase() === 'torcida furia')) return;
     if (!fanMap[m.uid]) {
       fanMap[m.uid] = { count: 0, lastMsg: m };
     }
     fanMap[m.uid].count++;
-    // Sempre pega a mensagem mais recente para nome/foto
     if (!fanMap[m.uid].lastMsg.ts || (m.ts && m.ts > fanMap[m.uid].lastMsg.ts)) {
       fanMap[m.uid].lastMsg = m;
     }
   });
   const medals = ['🥇', '🥈', '🥉', '🎖️', '🏅'];
   const topFansArr = Object.entries(fanMap)
+    .filter(([uid, fan]) => uid !== 'furia-bot' && (fan.lastMsg.user !== 'Torcida FURIA'))
     .sort((a, b) => b[1].count - a[1].count)
     .slice(0, 5)
     .map(([uid, { count, lastMsg }], idx) => ({
@@ -262,7 +272,7 @@ function App() {
             position:'relative',
             zIndex:2
           }}>
-            <TopFans messages={messages} mode="top3" />
+            <TopFans messages={allMessages} mode="top3" />
           </div>
 
           <div className="furia-social-bar" style={{display:'flex',alignItems:'center',gap:18}}>
@@ -282,7 +292,7 @@ function App() {
         </div>
         <div className="furia-content-row">
           {!isMobile && (
-            <Sidebar channel={channel} setChannel={setChannel} user={user} onQuiz={()=>setShowQuiz(true)} onEnquete={()=>setShowEnquete(true)} />
+            <Sidebar channel={channel} setChannel={setChannel} user={user} topFans={topFansArr} onQuiz={()=>setShowQuiz(true)} onEnquete={()=>setShowEnquete(true)} />
           )}
 
           <MainChat

@@ -48,10 +48,9 @@ export default function Sidebar({ channel, setChannel, topFans, user }) {
 
       <div className="furia-sidebar-section">
         <div className="furia-sidebar-label" style={{display:'flex',alignItems:'center',gap:7,marginBottom:8,fontWeight:800,fontSize:'1.13em',color:'#FFD600',textShadow:'0 1px 5px #FFD60033',letterSpacing:0.2}}>
-          <span style={{fontSize:'1.19em',marginTop:1}}>💬</span>
           Mural de Recados
         </div>
-        <MuralRecados user={user} topFanUid={topFans && topFans[0] ? topFans[0].uid : null} topFansArr={topFans} />
+        <MuralRecados user={user} topFansArr={topFans} />
       </div>
 
 

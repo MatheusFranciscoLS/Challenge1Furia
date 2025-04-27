@@ -13,7 +13,9 @@ export default function TopFans({ messages }) {
   const counts = {};
   const userInfo = {};
   messages.forEach(m => {
+    const nome = (m.user || m.displayName || '').trim().toLowerCase();
     const uid = m.uid || `anon-${(m.user || m.displayName || 'anon')}`;
+    if (uid === 'furia-bot' || nome === 'torcida furia') return; // FILTRO DO BOT
     if (!counts[uid]) {
       counts[uid] = 0;
       userInfo[uid] = {

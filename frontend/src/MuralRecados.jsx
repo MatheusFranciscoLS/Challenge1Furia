@@ -41,7 +41,7 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
   const [recados, setRecados] = useState([]);
 
   useEffect(() => {
-    const q = query(collection(db, "recados"), orderBy("ts", "desc"), limit(10));
+    const q = query(collection(db, "recados"), orderBy("ts", "desc"), limit(1));
     const unsub = onSnapshot(q, snap => {
       setRecados(snap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
     });
@@ -54,6 +54,12 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
     if (!recado.trim() || !user || !isAdmin) return;
     setEnviando(true);
     try {
+      // Apaga todos os recados antigos antes de adicionar o novo
+      const q = query(collection(db, "recados"));
+      const snap = await (await import('firebase/firestore')).getDocs(q);
+      const batch = (await import('firebase/firestore')).writeBatch(db);
+      snap.forEach(doc => batch.delete(doc.ref));
+      await batch.commit();
       await addDoc(collection(db, "recados"), {
         text: recado,
         user: user.displayName || user.email || "Anônimo",
@@ -113,22 +119,20 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
           const isTopFan = topFanUid && r.uid === topFanUid;
           return (
             <div key={r.id} className="furia-recado-item" style={{
-              background: isTopFan ? 'linear-gradient(90deg,#FFD60033 60%,#23242b 100%)' : '#23242b',
-              borderRadius: 16,
-              boxShadow: isTopFan ? '0 2px 12px #FFD60055' : '0 1px 4px #0004',
+              background: '#181A20',
+              borderRadius: 13,
+              boxShadow: isTopFan ? '0 2px 14px #FFD60044' : '0 1px 6px #0003',
               border: isTopFan ? '2px solid #FFD600' : '1.5px solid #FFD60022',
-              padding: isTopFan ? '11px 16px 11px 9px' : '8px 10px 8px 6px',
-              display:'flex', alignItems:'flex-start', gap:10, marginBottom:2, minHeight:48, animation:'fadeInRecado 0.6s cubic-bezier(.62,-0.01,.47,1.01)'
+              padding: '10px 13px 8px 12px',
+              display:'flex', alignItems:'flex-start', gap:10, marginBottom:6, minHeight:38, animation:'fadeInRecado 0.6s cubic-bezier(.62,-0.01,.47,1.01)'
             }}>
               {r.photo && <img src={r.photo} alt={r.user} style={{width:32,height:32,borderRadius:'50%',border:'2px solid #FFD60033',objectFit:'cover',marginRight:2,background:'#111'}} />}
               <div style={{ flex: 1, minWidth: 0 }}>
                 {/* Nome do usuário e badge, acima do balão */}
                 <div style={{display:'flex',alignItems:'center',gap:7,minHeight:24,marginBottom:2}}>
-                  {isTopFan && (
-                    <span style={{fontSize:'1.15em',marginRight:2,filter:'drop-shadow(0 1px 5px #FFD60088)'}} title="Top Fã 🥇">🥇</span>
-                  )}
+
                   <span style={{fontWeight:700, color:isTopFan?'#FFD600':'#fff', letterSpacing:0.2, fontSize:isTopFan?'1.09em':'0.97em', cursor: isTopFan?'pointer':'inherit'}} title={isTopFan?`Top Fã: ${r.user}`:r.user}>{r.user}</span>
-                  {badge}
+
                 </div>
                 {/* Balão da mensagem com horário no rodapé */}
                 <div style={{
