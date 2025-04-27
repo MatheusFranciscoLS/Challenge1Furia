@@ -80,7 +80,7 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
             style={{ flex: 1, minWidth: 0, borderTopRightRadius: 0, borderBottomRightRadius: 0, borderRight: 'none', background:'#181A20', color:'#FFD600', border:'none', fontWeight:600, fontSize:'1.07em', padding:'12px 16px' }}
             value={recado}
             onChange={e => setRecado(e.target.value)}
-            placeholder="Deixe seu recado para a FURIA!"
+            placeholder="Escreva Aqui"
             maxLength={80}
             disabled={!user}
             autoComplete="off"

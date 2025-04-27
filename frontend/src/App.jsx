@@ -149,7 +149,7 @@ function App() {
       };
       setMsg("");
       await addDoc(collection(db, "messages"), newMsg);
-      setToast({ type: 'success', message: 'Mensagem enviada!', visible: true });
+
       // Se for no canal #bot-ajuda, responde automaticamente
       if (channel === 'bot-ajuda') {
         let resposta = botResponder({ text: msg });

@@ -18,7 +18,7 @@ export default function TopFans({ messages }) {
       counts[uid] = 0;
       userInfo[uid] = {
         nome: m.user || m.displayName || 'Anônimo',
-        photo: m.photo || '',
+        photo: m.photoURL || m.photo || '',
       };
     }
     counts[uid]++;
@@ -26,7 +26,7 @@ export default function TopFans({ messages }) {
   const ranking = Object.entries(counts)
     .sort((a, b) => b[1] - a[1]);
 
-  const medals = ['🥇', '🥈', '🥉', '🎖️', '🏅'];
+  const medals = ['🥇', '🥈', '🥉'];
 
   return (
     <div className="furia-card" style={{marginBottom:16, background:'#181A20', color:'#FFD600'}}>
