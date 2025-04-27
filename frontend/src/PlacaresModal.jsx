@@ -32,29 +32,39 @@ export default function PlacaresModal({ open, onClose }) {
           placares.length > 0 ? (
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(4, 1fr)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
               gap: 18,
-              margin: '0 0 8px 0'
+              margin: '0 0 8px 0',
+              justifyItems: 'center',
+              alignItems: 'center'
             }}>
               {placares.slice(0, 12).map((p, idx) => (
                 <div key={idx} style={{
                   background:'#111',
-                  borderRadius:12,
-                  padding:'18px 14px',
+                  borderRadius:14,
+                  padding:'18px 10px',
                   boxShadow:'0 2px 8px #0002',
                   display:'flex',
                   flexDirection:'column',
-                  alignItems:'flex-start',
-                  minHeight:120,
-                  border:'1.5px solid #FFD60022'
+                  alignItems:'center',
+                  justifyContent:'center',
+                  minHeight:170,
+                  maxHeight:170,
+                  minWidth:180,
+                  maxWidth:200,
+                  width:'100%',
+                  border:'1.5px solid #FFD60022',
+                  margin:'0 auto'
                 }}>
                   <div style={{
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    justifyContent:'center',
                     gap: 6,
                     width: '100%',
-                    margin: '0 0 0 0',
+                    height: '100%',
+                    margin: '0',
                     padding: 0
                   }}>
                     <div style={{
@@ -73,7 +83,9 @@ export default function PlacaresModal({ open, onClose }) {
                       fontWeight: 800,
                       letterSpacing: 0.2,
                       marginBottom: 2,
-                      textShadow: '0 2px 8px #FFD60044, 0 1px 2px #000b'
+                      textShadow: '0 2px 8px #FFD60044, 0 1px 2px #000b',
+                      textAlign:'center',
+                      width:'100%'
                     }}>
                       FURIA <span style={{color:'#FFD600',fontWeight:900}}>vs</span> <span style={{color:'#FFD600',fontWeight:700}}>{p.adversario}</span>
                     </div>
@@ -102,9 +114,12 @@ export default function PlacaresModal({ open, onClose }) {
                       opacity: 0.82,
                       marginBottom: 0,
                       textAlign: 'center',
-                      letterSpacing: 0.1
+                      letterSpacing: 0.1,
+                      width:'100%'
                     }}>
-                      {p.torneio}
+                      {(p.modalidade && p.modalidade.toLowerCase().includes('kings league'))
+                        ? 'Kings League'
+                        : p.torneio}
                     </div>
                   </div>
                 </div>
