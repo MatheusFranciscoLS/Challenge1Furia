@@ -58,24 +58,6 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
 
 ---
 
-## 🖼️ Demonstração
-
-- Prints mostrando:
-  - Tela de login com botões "Entrar com Google" e "Entrar como Anônimo"
-  - Chat em funcionamento após login
-  - Logout retornando à tela de login
-  - Abertura dos modais de agenda de jogos e placares recentes
-  - Interação do fã com o bot e comandos
-- [Link para vídeo de demonstração (YouTube/Drive)](URL_DO_VIDEO)
-![Tela de Login](./frontend/public/prints/inicio.png)
-![Chat em funcionamento](./frontend/public/prints/Chat.png)
-![Modal de Agenda](./frontend/public/prints/agenda.png)
-![Interação com o Bot](./frontend/public/prints/bot.png)
-
-> **Observação:** A agenda de jogos e os placares exibem até 12 cards por vez. Para alterar esse limite, basta modificar o número no código (`.slice(0, 12)`).
-
----
-
 ## 🛠️ Como rodar localmente
 
 ### Pré-requisitos
@@ -99,6 +81,34 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
 - **Popups bloqueados:** Se o botão "Entrar com Google" não abrir, desative bloqueadores de popup/extensões para localhost.
 - **Logout:** Ao sair, você retorna automaticamente à tela de login.
 - **Erros 400 ou ERR_BLOCKED_BY_CLIENT** ao sair são normais e não afetam o funcionamento.
+
+---
+
+## 🖼️ Demonstração
+
+- Tela de login com botões "Entrar com Google" e "Entrar como Anônimo"
+- Página inicial (Home) com destaques das funcionalidades
+- Chat em funcionamento após login
+- Ranking dos fãs mais ativos
+- Mural de recados oficiais
+- Página de placares recentes
+- Página da agenda de jogos
+- Página de quiz/enquete
+- Interação do fã com o bot e comandos
+
+[Link para vídeo de demonstração (YouTube/Drive)](URL_DO_VIDEO)
+
+![Tela de Login](./frontend/public/prints/inicio.png)
+![Página Inicial](./frontend/public/prints/principal.png)
+![Chat em funcionamento](./frontend/public/prints/Chat.png)
+![Ranking dos Fãs](./frontend/public/prints/ranking.png)
+![Mural de Recados](./frontend/public/prints/mural.png)
+![Página de Placares](./frontend/public/prints/placar.png)
+![Modal de Agenda](./frontend/public/prints/agenda.png)
+![Página de Quiz/Enquete](./frontend/public/prints/quiz.png)
+![Interação com o Bot](./frontend/public/prints/Bot.png)
+
+> **Observação:** A agenda de jogos e os placares exibem até 12 cards por vez. Para alterar esse limite, basta modificar o número no código (`.slice(0, 12)`).
 
 ---
 
