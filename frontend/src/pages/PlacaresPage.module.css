@@ -1,0 +1,143 @@
+.placaresContainer {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #181A20;
+  border-radius: 18px;
+  box-shadow: 0 2px 32px #181A2014;
+  padding: 38px 0 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 340px;
+}
+
+.placaresTitle {
+  font-weight: 900;
+  font-size: 2.25em;
+  color: #FFD600;
+  margin-bottom: 22px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.placaresBoard {
+  width: 100%;
+  max-width: 700px;
+  background: #23242B;
+  border-radius: 14px;
+  box-shadow: 0 1px 16px #FFD60011;
+  padding: 0 0 10px 0;
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+
+.placarItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #23242B;
+  padding: 22px 32px 18px 32px;
+  gap: 22px;
+  transition: background 0.2s;
+  background: #23242B;
+}
+.placarItem:last-child {
+  border-bottom: none;
+}
+.placarItem:hover {
+  background: #181A20;
+}
+
+.placarInfo {
+  min-width: 120px;
+  text-align: left;
+}
+.placarData {
+  font-weight: 800;
+  font-size: 1.09em;
+  color: #FFD600;
+  letter-spacing: 0.5px;
+}
+.placarModalidade {
+  font-size: 1em;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.placarTeams {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.placarVersus {
+  color: #FFD600;
+  font-weight: 900;
+  padding: 0 7px;
+  font-size: 1.11em;
+}
+.placarTeam {
+  font-weight: 900;
+  color: #fff;
+  font-size: 1.18em;
+}
+.placarLogo {
+  height: 26px;
+  width: 26px;
+  object-fit: contain;
+  margin-right: 6px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.placarResult {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 90px;
+}
+.placarPlacar {
+  font-weight: 900;
+  font-size: 1.2em;
+  margin-bottom: 2px;
+}
+.placarVit {
+  color: #43C463;
+}
+.placarDer {
+  color: #E44B4B;
+}
+.placarEmp {
+  color: #FFD600;
+}
+.placarStatus {
+  font-weight: 700;
+  font-size: 0.99em;
+  margin-top: 2px;
+}
+
+@media (max-width: 700px) {
+  .placaresBoard {
+    max-width: 98vw;
+    border-radius: 7px;
+    padding: 0 0 8px 0;
+  }
+  .placarItem {
+    padding: 14px 9px 12px 9px;
+    gap: 8px;
+  }
+  .placaresContainer {
+    padding: 16px 0 8px 0;
+    min-height: 220px;
+  }
+  .placaresTitle {
+    font-size: 1.35em;
+    padding: 0 4vw;
+  }
+}

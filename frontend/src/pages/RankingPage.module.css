@@ -1,0 +1,91 @@
+.rankingContainer {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  background: #181A20;
+  border-radius: 18px;
+  box-shadow: 0 2px 32px #181A2014;
+  padding: 36px 0 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 320px;
+}
+.rankingTitle {
+  font-weight: 900;
+  font-size: 2em;
+  color: #ffe066;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.rankingDesc {
+  font-size: 1.1em;
+  color: #fff;
+  text-align: center;
+  max-width: 480px;
+  margin-bottom: 18px;
+  opacity: 0.9;
+}
+.rankingList {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.rankingFan {
+  display: flex;
+  align-items: center;
+  background: #23242b;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  padding: 16px 18px;
+  font-size: 1.13em;
+  color: #ffe066;
+  font-weight: 600;
+  box-shadow: 0 1px 8px 0 #0002;
+  transition: background 0.2s;
+}
+.rankingFanTop1 {
+  background: linear-gradient(90deg, #ffe066 60%, #fffbe6 100%);
+  color: #181818;
+  font-size: 1.18em;
+  font-weight: 900;
+}
+.rankingFanTop2 {
+  background: linear-gradient(90deg, #bfc1c4 60%, #eaeaea 100%);
+  color: #181818;
+  font-weight: 800;
+}
+.rankingFanTop3 {
+  background: linear-gradient(90deg, #e1a86a 60%, #fbe7c6 100%);
+  color: #181818;
+  font-weight: 800;
+}
+.rankingFanPos {
+  min-width: 2.2em;
+  text-align: right;
+  margin-right: 1.2em;
+  font-size: 1.1em;
+  font-weight: 900;
+}
+.rankingFanName {
+  flex: 1;
+  font-weight: 700;
+}
+.rankingFanScore {
+  margin-left: 1.2em;
+  font-size: 1em;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .rankingContainer {
+    padding: 20px 0 12px 0;
+  }
+  .rankingTitle {
+    font-size: 1.3em;
+  }
+  .rankingFan {
+    font-size: 0.98em;
+    padding: 10px 7px;
+  }
+}

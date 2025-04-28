@@ -6,7 +6,6 @@ import QuizEnqueteModal from "./QuizEnqueteModal.jsx";
 import { quizPerguntas } from "./QuizData";
 import { enquete } from "./EnqueteData";
 
-import { getFrasesProntas, getFrasesProntasPorModalidade } from "./torcida-bot";
 import { botFaqSuggestions } from "./bot-faq-suggestions";
 import FuriaModal from "./FuriaModal.jsx";
 import {

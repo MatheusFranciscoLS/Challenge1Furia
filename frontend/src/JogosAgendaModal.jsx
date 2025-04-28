@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchJogos } from "./bot-jogos-util";
+
 
 export default function JogosAgendaModal({ open, onClose }) {
   const [jogos, setJogos] = useState([]);

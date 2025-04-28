@@ -114,9 +114,6 @@ export default function MuralRecados({ user, topFanUid, topFansArr = [] }) {
       )}
       <div className="furia-recados-list" style={{display:'flex',flexDirection:'column',gap:10}}>
         {recados.map(r => {
-          const badge = r.uid && badgeCounts[r.uid] !== undefined
-            ? <span style={{marginLeft:2,filter:'drop-shadow(0 1px 4px #FFD60066)'}}><Badges count={badgeCounts[r.uid]} /></span>
-            : null;
           const isTopFan = topFanUid && r.uid === topFanUid;
           return (
             <div key={r.id} className="furia-recado-item" style={{

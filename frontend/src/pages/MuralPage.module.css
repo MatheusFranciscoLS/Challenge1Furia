@@ -1,0 +1,183 @@
+/* Estilo profissional para o Mural de Recados */
+.muralContainer {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  background: #181A20;
+  border-radius: 26px;
+  box-shadow: 0 8px 40px #181A2030, 0 1px 0 #FFD60044 inset;
+  padding: 54px 0 38px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 390px;
+  position: relative;
+  transition: box-shadow 0.3s;
+}
+
+.muralContainer:hover {
+  box-shadow: 0 12px 60px #FFD60055, 0 1px 0 #FFD60044 inset;
+}
+
+
+.muralTitle {
+  font-weight: 900;
+  font-size: 2.2em;
+  color: #FFD600;
+  margin-bottom: 18px;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 16px #FFD60033, 0 1px 0 #181A20;
+}
+
+.muralBoard {
+  width: 100%;
+  max-width: 520px;
+  background: #FFFFFF;
+  border-radius: 14px;
+  box-shadow: 0 2px 18px #FFD60011;
+  padding: 22px 24px 18px 24px;
+  margin-bottom: 18px;
+  display: block;
+  /* Filtros e inputs removidos */
+}
+
+
+.muralEmpty {
+  color: #bbb;
+  text-align: center;
+  font-size: 1.15em;
+  padding: 32px 0;
+}
+
+.recadoItem {
+  background: #FFFFFF;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #FFD60022, 0 1.5px 0 #FFD60022 inset;
+  border: 2px solid #FFD600;
+  padding: 22px 26px 16px 26px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  animation: fadeinGlow 0.8s cubic-bezier(.62,-0.01,.47,1.01);
+  transition: box-shadow 0.25s, border 0.25s;
+}
+.recadoItem:hover {
+  box-shadow: 0 8px 40px #FFD60055, 0 1.5px 0 #FFD60044 inset;
+  border-color: #FFD600;
+}
+
+@keyframes fadeinGlow {
+  from { opacity: 0; transform: translateY(24px) scale(0.97); box-shadow: 0 0 0 #FFD60000; }
+  to { opacity: 1; transform: translateY(0) scale(1); box-shadow: 0 4px 32px #FFD60033; }
+}
+
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+.recadoHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
+  gap: 8px;
+}
+
+.recadoAvatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 3px solid #FFD600;
+  box-shadow: 0 0 14px #FFD60044, 0 2px 8px #181A2030;
+  object-fit: cover;
+  background: #181A20;
+  margin-bottom: 2px;
+  transition: box-shadow 0.2s;
+}
+.recadoItem:hover .recadoAvatar {
+  box-shadow: 0 0 24px #FFD60099, 0 4px 18px #FFD60044;
+}
+
+
+.recadoAdmin {
+  color: #FFD600;
+  font-weight: 800;
+  font-size: 1.08em;
+  letter-spacing: 0.01em;
+  text-align: center;
+  margin-top: 2px;
+  margin-bottom: 4px;
+  text-shadow: 0 1px 10px #FFD60033;
+}
+
+
+
+.recadoUser {
+  color: #181A20;
+  font-weight: 900;
+  font-size: 1.15em;
+  letter-spacing: 0.01em;
+  text-align: center;
+  margin-bottom: 3px;
+}
+
+
+
+.recadoDate {
+  color: #23242B;
+  font-size: 0.98em;
+  font-weight: 700;
+  text-align: right;
+  margin-top: 8px;
+  margin-bottom: 0;
+  letter-spacing: 0.02em;
+  display: block;
+}
+
+
+
+.recadoMsg {
+  background: #F8F8FA;
+  border-radius: 10px;
+  border: 1.5px solid #FFD60033;
+  color: #181A20;
+  font-size: 1.18em;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding: 14px 18px 8px 18px;
+  word-break: break-word;
+  box-shadow: 0 1px 8px #FFD60011;
+  font-weight: 500;
+}
+
+
+
+@media (max-width: 900px) {
+  .muralContainer {
+    max-width: 100vw;
+    border-radius: 0;
+    margin: 0;
+    padding: 18px 0 8px 0;
+    min-height: 240px;
+  }
+  .muralBoard {
+    max-width: 98vw;
+    border-radius: 0;
+    padding: 10px 2vw 6px 2vw;
+  }
+  .recadoItem {
+    padding: 14px 7vw 10px 7vw;
+    gap: 8px;
+  }
+  .recadoMsg {
+    font-size: 1.04em;
+    padding: 10px 10px 6px 10px;
+  }
+  .recadoAvatar {
+    width: 38px;
+    height: 38px;
+  }
+}
