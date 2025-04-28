@@ -1,6 +1,7 @@
 import React from "react";
 import "./furia-theme.css";
 import { auth, googleProvider, signInAnonymously, signInWithPopup } from "./firebase";
+import LandingHeader from "./LandingHeader";
 
 /**
  * Tela inicial (Landing Page) da FURIA GG
@@ -27,12 +28,7 @@ export default function Landing() {
   };
   return (
     <div className="furia-landing-container">
-      <header className="furia-header" style={{textAlign:'center',padding:'36px 0 16px 0'}}>
-        <img src="/furia-logo.png" alt="FURIA Logo" className="furia-logo-anim" style={{margin:'0 auto',maxWidth:110}} />
-        <h1 className="furia-title" style={{fontWeight:700,letterSpacing:2,fontSize:'2.2rem',margin:'14px 0 4px 0'}}>Bem-vindo à FURIA GG</h1>
-        <p className="furia-slogan">Paixão, Garra e Inovação nos Esportes</p>
-        <p style={{color:'#FFD600',margin:'10px 0 0 0',fontWeight:500}}>O ponto de encontro oficial dos fãs da FURIA!</p>
-      </header>
+      <LandingHeader />
       <main style={{maxWidth:600,margin:'0 auto',padding:'18px 10px'}}>
         <section style={{marginBottom:28}}>
           <h2 style={{fontSize:'1.3em',color:'#FFD600',marginBottom:9}}>Nossa Missão</h2>
