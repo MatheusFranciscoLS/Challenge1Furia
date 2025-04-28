@@ -22,9 +22,6 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
 
 ---
 
-Bem-vindo ao chat interativo de fãs da FURIA! 🦁🔥  
-Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e recebe informações em tempo real do time de CS da FURIA.
-
 ## 🚀 Funcionalidades Principais
 
 - Chat global em tempo real (Firebase)
@@ -149,8 +146,6 @@ Todas retornam mensagens amigáveis e status apropriados para facilitar a experi
 - Integração com APIs de e-sports oficiais
 - Reações e perfis customizados
 - Deploy do backend para novas integrações
-
----
 
 ---
 
