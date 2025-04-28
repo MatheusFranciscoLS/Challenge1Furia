@@ -68,7 +68,7 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
   - Interação do fã com o bot e comandos
 - [Link para vídeo de demonstração (YouTube/Drive)](URL_DO_VIDEO)
 ![Tela de Login](./frontend/public/prints/inicio.png)
-![Chat em funcionamento](./frontend/public/prints/chat.png)
+![Chat em funcionamento](./frontend/public/prints/Chat.png)
 ![Modal de Agenda](./frontend/public/prints/agenda.png)
 ![Interação com o Bot](./frontend/public/prints/bot.png)
 
