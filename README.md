@@ -130,7 +130,7 @@ Todas retornam mensagens amigáveis e status apropriados para facilitar a experi
 
 ## 📱 Mobile: Em desenvolvimento!
 
-> **Atenção:** O app já funciona em celulares, mas a responsividade e a experiência mobile ainda não estão 100% finalizadas. Melhorias de usabilidade para dispositivos móveis estão em andamento e serão lançadas em breve!
+> **Atenção:** O site já funciona em celulares, mas a responsividade e a experiência mobile ainda não estão 100% finalizadas. Melhorias de usabilidade para dispositivos móveis estão em andamento e serão lançadas em breve!
 
 ## 🧹 Manutenção e Boas Práticas
 
