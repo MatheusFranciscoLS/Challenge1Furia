@@ -101,11 +101,11 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
 ![Tela de Login](./frontend/public/prints/inicio.png)
 ![Página Inicial](./frontend/public/prints/principal.png)
 ![Chat em funcionamento](./frontend/public/prints/Chat.png)
-![Ranking dos Fãs](./frontend/public/prints/ranking.png)
-![Mural de Recados](./frontend/public/prints/mural.png)
-![Página de Placares](./frontend/public/prints/placar.png)
+![Ranking dos Fãs](./frontend/public/prints/Ranking.png)
+![Mural de Recados](./frontend/public/prints/Mural.png)
+![Página de Placares](./frontend/public/prints/Placar.png)
 ![Modal de Agenda](./frontend/public/prints/agenda.png)
-![Página de Quiz/Enquete](./frontend/public/prints/quiz.png)
+![Página de Quiz/Enquete](./frontend/public/prints/Quiz.png)
 ![Interação com o Bot](./frontend/public/prints/Bot.png)
 
 > **Observação:** A agenda de jogos e os placares exibem até 12 cards por vez. Para alterar esse limite, basta modificar o número no código (`.slice(0, 12)`).
