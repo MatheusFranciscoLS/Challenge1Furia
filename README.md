@@ -31,10 +31,16 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
 - Tela de login moderna: escolha entre Google ou Anônimo
 - Autenticação obrigatória: só usuários autenticados acessam o chat
 - Modais para agenda de jogos e placares recentes (acesso fácil pela interface)
+- Quiz e Enquete interativos com feedback sonoro
+- Ranking dos fãs mais ativos com badges e XP
 - Comandos inteligentes para fãs (veja abaixo)
 - Status de jogos ao vivo (mock)
 - Experiência reativa: após login, acesso imediato ao chat
 - Logout seguro: ao sair, retorna para a tela de login
+- Código limpo, sem variáveis ou funções não utilizadas
+- Tratamento robusto de erros e mensagens orientativas
+- Áudio local para feedback do quiz em `/frontend/public/sounds/error.mp3` (adicione seu próprio efeito sonoro!)
+- Organização dos componentes e melhores práticas de React
 
 ---
 
@@ -89,6 +95,7 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
    - `cd frontend && npm run dev`
 5. (Opcional) Rode o backend localmente se desejar:
    - `cd backend && npm start`
+6. Para o quiz funcionar com feedback sonoro de erro, coloque um arquivo `.mp3` de efeito sonoro em `frontend/public/sounds/error.mp3`.
 
 #### Observações importantes
 - **Login obrigatório:** Você só acessa o chat após autenticação (Google ou Anônimo).
@@ -118,6 +125,20 @@ Todas retornam mensagens amigáveis e status apropriados para facilitar a experi
 > **Observação:**
 > - Para informações de jogos futuros e placares, utilize os modais na interface.
 > - O bot responde dúvidas sobre comandos, jogadores, curiosidades e mais!
+
+---
+
+## 📱 Mobile: Em desenvolvimento!
+
+> **Atenção:** O app já funciona em celulares, mas a responsividade e a experiência mobile ainda não estão 100% finalizadas. Melhorias de usabilidade para dispositivos móveis estão em andamento e serão lançadas em breve!
+
+## 🧹 Manutenção e Boas Práticas
+
+- O código foi revisado para remover todas as variáveis e funções não utilizadas.
+- Todos os componentes estão organizados, documentados e seguem boas práticas de React.
+- Linting e limpeza constantes para garantir manutenibilidade.
+- Tratamento de erros orientativo para o usuário.
+- Feedback sonoro local para respostas erradas no quiz (adicione seu próprio efeito em `/frontend/public/sounds/error.mp3`).
 
 ---
 

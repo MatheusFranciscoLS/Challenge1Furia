@@ -60,58 +60,62 @@ function LandingContent() {
           <FeatureCard title="Placares" desc="Veja resultados, estatísticas e histórico das partidas." icon="🏆" />
           <FeatureCard title="Quiz / Enquete" desc="Participe de quizzes e enquetes para testar seus conhecimentos e engajar!" icon="❓" />
         </div>
-        <button
-          onClick={handleGoogle}
-          style={{
-            marginTop: 10,
-            background: '#fff',
-            color: '#181A20',
-            fontWeight: 700,
-            fontSize: '1.18em',
-            borderRadius: 8,
-            border: '1.5px solid #FFD600',
-            padding: '16px 38px',
-            boxShadow: '0 2px 12px #FFD60022',
-            cursor: 'pointer',
-            transition: 'background 0.16s, color 0.16s, box-shadow 0.16s',
-            display: 'inline-block',
-            marginBottom: 18,
-          }}
-          onMouseOver={e => {
-            e.target.style.background = '#FFD600';
-            e.target.style.color = '#181A20';
-            e.target.style.boxShadow = '0 4px 16px #FFD60066';
-          }}
-          onMouseOut={e => {
-            e.target.style.background = '#fff';
-            e.target.style.color = '#181A20';
-            e.target.style.boxShadow = '0 2px 12px #FFD60022';
-          }}
-        >Entrar com Google</button>
+        <div style={{ display: 'flex', gap: 20, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 34 }}>
+          <button
+            onClick={handleGoogle}
+            style={{
+              background: '#fff',
+              color: '#181A20',
+              fontWeight: 700,
+              fontSize: '1.18em',
+              borderRadius: 8,
+              border: '1.5px solid #FFD600',
+              padding: '16px 38px',
+              boxShadow: '0 2px 12px #FFD60022',
+              cursor: 'pointer',
+              transition: 'background 0.16s, color 0.16s, box-shadow 0.16s',
+              display: 'inline-block',
+              marginBottom: 0,
+              marginTop: 10,
+              minWidth: 180
+            }}
+            onMouseOver={e => {
+              e.target.style.background = '#FFD600';
+              e.target.style.color = '#181A20';
+              e.target.style.boxShadow = '0 4px 16px #FFD60066';
+            }}
+            onMouseOut={e => {
+              e.target.style.background = '#fff';
+              e.target.style.color = '#181A20';
+              e.target.style.boxShadow = '0 2px 12px #FFD60022';
+            }}
+          >Entrar com Google</button>
 
-        <button
-          type="button"
-          onClick={handleAnon}
-          style={{
-            background: 'linear-gradient(90deg, #FFD600 60%, #FFF200 100%)',
-            color: '#181A20',
-            fontWeight: 700,
-            fontSize: '1.09em',
-            borderRadius: 8,
-            padding: '13px 32px',
-            textDecoration: 'none',
-            boxShadow: '0 2px 12px #FFD60022',
-            transition: 'background 0.18s, box-shadow 0.18s',
-            marginTop: 8,
-            marginBottom: 34,
-            letterSpacing: 0.5,
-            border: 'none',
-            display: 'inline-block',
-            cursor: 'pointer'
-          }}
-          onMouseOver={e=>e.target.style.boxShadow='0 4px 16px #FFD60066'}
-          onMouseOut={e=>e.target.style.boxShadow='0 2px 12px #FFD60022'}
-        >Entrar como Anônimo</button>
+          <button
+            type="button"
+            onClick={handleAnon}
+            style={{
+              background: 'linear-gradient(90deg, #FFD600 60%, #FFF200 100%)',
+              color: '#181A20',
+              fontWeight: 700,
+              fontSize: '1.09em',
+              borderRadius: 8,
+              padding: '13px 32px',
+              textDecoration: 'none',
+              boxShadow: '0 2px 12px #FFD60022',
+              transition: 'background 0.18s, box-shadow 0.18s',
+              letterSpacing: 0.5,
+              border: 'none',
+              display: 'inline-block',
+              cursor: 'pointer',
+              marginBottom: 0,
+              marginTop: 10,
+              minWidth: 180
+            }}
+            onMouseOver={e=>e.target.style.boxShadow='0 4px 16px #FFD60066'}
+            onMouseOut={e=>e.target.style.boxShadow='0 2px 12px #FFD60022'}
+          >Entrar como Anônimo</button>
+        </div>
       </main>
     </div>
   );
