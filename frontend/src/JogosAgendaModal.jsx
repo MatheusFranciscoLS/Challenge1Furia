@@ -25,23 +25,61 @@ export default function JogosAgendaModal({ open, onClose }) {
 
   return (
     <div className="furia-modal-overlay" style={{position:'fixed',top:0,left:0,width:'100vw',height:'100vh',background:'rgba(0,0,0,0.65)',zIndex:1000,display:'flex',alignItems:'center',justifyContent:'center'}}>
-      <div className="furia-modal-content" style={{background:'#222',color:'#fff',borderRadius:12,padding:32,minWidth:320,maxWidth:750,boxShadow:'0 4px 32px #000',position:'relative',width:'90vw'}}>
+      <div className="furia-modal-content" style={{background:'#222',color:'#fff',borderRadius:12,padding:32,margin:'0 auto',maxWidth:1200,boxShadow:'0 4px 32px #000',position:'relative',width:'90vw',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
         <button onClick={onClose} style={{position:'absolute',top:12,right:12,fontSize:22,background:'none',border:'none',color:'#FFD600',cursor:'pointer'}} title="Fechar">×</button>
-        <h2 style={{marginTop:0,marginBottom:18,color:'#FFD600'}}>Agenda de Jogos</h2>
+        <h2 style={{marginTop:0,marginBottom:18,color:'#FFD600',textAlign:'center',width:'100%'}}>Agenda de Jogos</h2>
         {loading && <div>Carregando...</div>}
         {erro && <div style={{color:'#FFD600'}}>{erro}</div>}
         {!loading && !erro && (
           jogos.length > 0 ? (
-            <div style={{
+            <div className="furia-agenda-grid" style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-              gap: 18,
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: 22,
               margin: '0 0 8px 0',
+              padding: '0 0 32px 0',
               justifyItems: 'center',
-              alignItems: 'center'
+              alignItems: 'center',
+              width: '100%',
+              justifyContent: 'center'
             }}>
+              <style>{`
+                .furia-agenda-grid {
+                  width: 100%;
+                  justify-content: center;
+                }
+                .furia-agenda-card {
+                  height: 180px !important;
+                  min-height: 180px !important;
+                  max-height: 180px !important;
+                  max-width: 340px;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                }
+                @media (max-width: 1100px) {
+                  .furia-agenda-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                    padding-left: 12px !important;
+                    padding-right: 12px !important;
+                  }
+                }
+                @media (max-width: 700px) {
+                  .furia-agenda-grid {
+                    grid-template-columns: 1fr !important;
+                    padding-left: 4px !important;
+                    padding-right: 4px !important;
+                  }
+                  .furia-agenda-card {
+                    height: 170px !important;
+                    min-height: 170px !important;
+                    max-height: 170px !important;
+                  }
+                }
+              `}</style>
               {jogos.slice(0, 12).map((j, idx) => (
-                <div key={idx} style={{
+                <div key={idx} className="furia-agenda-card" style={{
                   background:'#111',
                   borderRadius:14,
                   padding:'18px 10px',
