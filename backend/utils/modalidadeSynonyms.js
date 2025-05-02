@@ -5,7 +5,7 @@
 const modalidadeMap = {
   'apex': ['apex', 'apex legends'],
   'csgo2': ['csgo2', 'csgo', 'cs:go', 'counter strike', 'counter-strike', 'cs'],
-  'futebol7': ['futebol7', 'futebol 7', 'fut7', 'seven-a-side', 'football7', 'futebol de 7'],
+  'kingsleague': ['kingsleague', 'kings league', 'kl', 'futebol 7', 'futebol7', 'fut7'],
   'lol': ['lol', 'league of legends', 'league', 'l.o.l.'],
   'pubg': ['pubg', 'playerunknown', 'playerunknown battlegrounds'],
   'rainbowsix': ['rainbowsix', 'rainbow six', 'rainbow six siege', 'rs6', 'r6'],
@@ -20,13 +20,22 @@ const modalidadeMap = {
  */
 function resolveModalidade(query) {
   if (!query) return null;
-  const q = query.toLowerCase().replace(/\s+/g, '');
+  const q = query.toLowerCase();
+  
+  // Primeiro verifica se é uma modalidade exata
+  if (Object.keys(modalidadeMap).includes(q)) {
+    return q;
+  }
+  
+  // Depois verifica os sinônimos
   for (const [key, synonyms] of Object.entries(modalidadeMap)) {
-    if (synonyms.some(s => q === s.replace(/\s+/g, ''))) {
+    if (synonyms.some(s => s.toLowerCase() === q)) {
       return key;
     }
   }
-  return query.toLowerCase(); // fallback para busca exata
+  
+  // Se não encontrou, retorna null
+  return null;
 }
 
 module.exports = { modalidadeMap, resolveModalidade };

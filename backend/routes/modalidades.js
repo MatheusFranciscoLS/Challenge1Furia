@@ -6,8 +6,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../firebase');
 const admin = require('firebase-admin');
-const { modalidadeMap } = require('../utils/modalidadeSynonyms');
-const { fuzzySearchModalidade } = require('../utils/fuzzyModalidade');
 
 /**
  * Middleware de autenticação Firebase
@@ -40,18 +38,34 @@ async function authenticate(req, res, next) {
  */
 router.get('/', async (req, res) => {
   try {
+    // Busca todas as modalidades disponíveis
     const snapshot = await db.collection('modalidades').get();
+    
     // Tratamento para comandos reservados como query
     const { comando } = req.query;
     if (comando === 'help' || comando === 'comandos') {
       return res.status(400).json({ erro: 'Consulta inválida. Veja os comandos disponíveis em /help.' });
     }
+    
+    if (snapshot.empty) {
+      return res.status(404).json({ erro: 'Modalidades não encontradas' });
+    }
+    
+    // Extrai os nomes dos documentos que são as modalidades
     const modalidades = snapshot.docs.map(doc => doc.id);
-    res.json({ modalidades });
+    
+    // Filtra para remover o documento 'list' e ordena alfabeticamente
+    const modalidadesFiltradas = modalidades
+      .filter(mod => !['list', 'fifa', 'kingsleague'].includes(mod))
+      .sort();
+    
+    // Retorna as modalidades encontradas
+    res.json({ modalidades: modalidadesFiltradas });
   } catch (e) {
+    console.error('Erro ao buscar modalidades:', e);
     res.status(500).json({ erro: 'Erro ao buscar modalidades', detalhes: e.message });
   }
-});
+}); 
 
 // POST - adicionar modalidade
 /**

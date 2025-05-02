@@ -81,7 +81,7 @@ function App() {
 
   // Lista simples de palavras ofensivas (exemplo, pode ser centralizada em utils futuramente)
   const offensiveWords = [
-    'palavrão1', 'palavrão2', 'idiota', 'burro', 'otário', 'merda', 'bosta', 'fdp', 'pqp', 'caralho', 'porra', 'puta', 'fuder', 'foda', 'desgraça', 'arrombado', 'corno', 'viado', 'bicha', 'racista', 'preto', 'macaco', 'branco', 'gordo', 'magro', 'retardado', 'mongol', 'imbecil', 'babaca', 'escroto', 'lixo', 'cuzão', 'cu', 'buceta', 'pau', 'pinto', 'rola', 'boceta', 'bosta', 'bixa', 'viado', 'veado', 'gay', 'lésbica', 'puta', 'prostituta', 'vagabunda', 'puto', 'safado', 'safada', 'cabra', 'puta', 'prostituto', 'prostituta', 'viado', 'veado', 'gay', 'lésbica', 'puta', 'prostituta', 'vagabunda', 'puto', 'safado', 'safada', 'cabra', 'puta', 'prostituto', 'prostituta'
+    'palavrão1', 'palavrão2', 'idiota', 'burro', 'otário', 'merda', 'bosta', 'fdp', 'pqp', 'caralho', 'porra', 'puta', 'fuder', 'foda', 'desgraça', 'arrombado', 'corno', 'viado', 'bicha', 'racista', 'preto', 'macaco', 'branco', 'gordo', 'magro', 'retardado', 'mongol', 'imbecil', 'babaca', 'escroto', 'lixo',    'cuzão', 'buceta', 'pau', 'pinto', 'rola', 'boceta', 'bosta', 'bixa', 'viado', 'veado', 'gay', 'lésbica', 'puta', 'prostituta', 'vagabunda', 'puto', 'safado', 'safada', 'cabra', 'puta', 'prostituto', 'prostituta', 'viado', 'veado', 'gay', 'lésbica', 'puta', 'prostituta', 'vagabunda', 'puto', 'safado', 'safada', 'cabra', 'puta', 'prostituto', 'prostituta'
   ];
   // Função utilitária para checar palavras ofensivas
   function containsOffensive(text) {

@@ -11,11 +11,26 @@ const db = admin.firestore();
 
 async function seed() {
   // Modalidades (do furia-modalidades.js)
-  await db.collection('modalidades').doc('list').set({
-    modalidades: [
-      'csgo2', 'valorant', 'rainbowsix', 'apex', 'lol', 'rocketleague', 'pubg', 'futebol7'
-    ]
-  });
+  const modalidades = ['csgo2', 'valorant', 'rainbowsix', 'apex', 'lol', 'rocketleague', 'pubg', 'futebol7'];
+  
+  // Cria um documento para cada modalidade
+  for (const mod of modalidades) {
+    if (mod === 'list') continue; // Pula o documento 'list'
+    
+    await db.collection('modalidades').doc(mod).set({
+      nome: mod,
+      sinonimo: {
+        'csgo2': 'csgo2',
+        'valorant': 'valorant',
+        'rainbowsix': 'rainbowsix',
+        'apex': 'apex',
+        'lol': 'lol',
+        'rocketleague': 'rocketleague',
+        'pubg': 'pubg',
+        'futebol7': 'futebol7'
+      }[mod] || mod
+    });
+  }
 
   // Elenco (do elenco.json)
   await db.collection('elenco').doc('csgo2').set({ jogadores: ["arT", "yuurih", "KSCERATO", "chelo", "saffee"] });
@@ -57,10 +72,26 @@ async function seed() {
     "A FURIA já foi campeã do e-Brasileirão.",
     "Time com jogadores de destaque internacional."
   ] });
-  await db.collection('curiosidades').doc('kingsleague').set({ curiosidades: [
-    "A FURIA foi uma das primeiras equipes brasileiras na Kings League.",
-    "Time comandado por Fred, ex-Desimpedidos."
-  ] });
+  await db.collection('curiosidades').doc('futebol7').set({
+    nome: 'Futebol 7',
+    elenco: [
+      'Bruno',
+      'Caio',
+      'Gabriel',
+      'João',
+      'Lucas',
+      'Matheus',
+      'Pedro',
+      'Rafael'
+    ],
+    curiosidades: [
+      'A FURIA é conhecida por sua formação de base e desenvolvimento de talentos jovens.',
+      'O time já conquistou vários títulos importantes no cenário do futebol 7.',
+      'A equipe tem uma forte presença nas redes sociais e uma torcida apaixonada.',
+      'Os jogadores da FURIA são conhecidos por seu estilo de jogo ofensivo e técnico.',
+      'O time participa de torneios nacionais e internacionais representando o Brasil.'
+    ]
+  });
   await db.collection('curiosidades').doc('apex').set({ curiosidades: [
     "Equipe com presença constante nas finais da ALGS.",
     "Jogadores conhecidos pelo estilo agressivo."

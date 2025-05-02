@@ -7,6 +7,51 @@
  * @type {string}
  */
 export const BOT_NAME = "Torcida FURIA";
+
+/**
+ * Lista todas as modalidades disponíveis
+ * @returns {Promise<string>}
+ */
+async function getModalidades() {
+  try {
+    const res = await fetch('http://localhost:3031/api/modalidades');
+    if (!res.ok) throw new Error(`Erro ao buscar modalidades: ${res.status}`);
+    const data = await res.json();
+    
+    if (data.modalidades && Array.isArray(data.modalidades)) {
+      // Filtra para remover o documento 'list'
+      const modalidades = data.modalidades.filter(mod => mod !== 'list');
+      const sinonimos = {
+        'csgo2': 'csgo2',
+        'valorant': 'valorant',
+        'rainbowsix': 'rainbowsix',
+        'apex': 'apex',
+        'lol': 'lol',
+        'rocketleague': 'rocketleague',
+        'pubg': 'pubg',
+        'futebol7': 'futebol7'
+      };
+      
+      const modalidadesComSinonimos = modalidades.map(mod => {
+        const sinonimo = sinonimos[mod] || mod;
+        return `• ${mod.toUpperCase()} (${sinonimo})`;
+      });
+      
+      // Ordena as modalidades alfabeticamente
+      modalidadesComSinonimos.sort();
+      
+      return `Modalidades disponíveis:
+${modalidadesComSinonimos.join('\n\n')}
+
+Exemplo: /elenco csgo2`;
+    }
+    
+    return 'Erro ao carregar as modalidades. Tente novamente mais tarde.';
+  } catch (err) {
+    console.error('Erro ao buscar modalidades:', err);
+    return 'Erro ao carregar as modalidades. Tente novamente mais tarde.';
+  }
+}
 /**
  * Caminho para o avatar do bot
  * @type {string}
@@ -211,6 +256,37 @@ export async function botResponder(msg) {
    * @param {string} modalidade
    * @returns {Promise<string>}
    */
+  
+
+  // Função auxiliar para buscar curiosidades
+async function getCuriosidades(modalidade) {
+  try {
+    const res = await fetch(`http://localhost:3031/api/curiosidades/${modalidade}`);
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      if (data.modalidades) {
+        const modalidadeAleatoria = data.modalidades[Math.floor(Math.random() * data.modalidades.length)];
+        return await getCuriosidades(modalidadeAleatoria);
+      }
+      return data.erro || `Erro ao buscar curiosidades (${res.status}).`;
+    }
+    const data = await res.json();
+    if (!data.curiosidades || !data.curiosidades.length)
+      return `Ainda não temos curiosidades cadastradas para ${modalidade} 🤔. Explore outras modalidades com /modalidades ou pergunte sobre outra equipe! Exemplo: /curiosidades valorant`;
+
+    const curiosidades = data.curiosidades.map(curiosidade => 
+      curiosidade
+        .replace(/[^\w\s]/g, '') // Remove caracteres especiais
+        .replace(/\s+/g, ' ') // Remove espaços extras
+        .trim()
+    );
+
+    return `Curiosidades de ${modalidade.toUpperCase()}: ${curiosidades.join(" - ")}`;
+  } catch (err) {
+    console.error("Erro ao buscar curiosidades:", err);
+    return "Erro ao buscar curiosidades.";
+  }
+}
   async function getElenco(modalidade) {
     try {
       const res = await fetch(`http://localhost:3031/api/elenco/${modalidade}`);
@@ -222,8 +298,12 @@ export async function botResponder(msg) {
       }
       if (!res.ok) {
         // Se backend retornar mensagem amigável, mostre ela
+        if (data.modalidades) {
+          return `Modalidade não encontrada. Modalidades disponíveis: ${data.modalidades.join(', ')}`;
+        }
         return data.erro || `Erro ao buscar elenco (${res.status}).`;
       }
+      
       return data.elenco && data.elenco.length
         ? `Elenco de ${modalidade.toUpperCase()}: ${data.elenco.join(", ")}`
         : `Não encontrei elenco cadastrado para ${modalidade} 😕. Que tal descobrir as modalidades disponíveis? Use /modalidades para ver todas as opções e depois tente, por exemplo: /elenco csgo2 🚀`;
@@ -234,9 +314,29 @@ export async function botResponder(msg) {
   }
 
   // Comandos interativos exclusivos
+  if (texto.startsWith("/modalidades")) {
+    return await getModalidades();
+  }
+
   if (texto.startsWith("/elenco")) {
-    // Corrige modalidade padrão para 'csgo2' (não existe mais 'csgo')
-    const mod = texto.split(" ")[1] || "csgo2";
+    // Extrai a modalidade do comando
+    const mod = texto.split(" ")[1];
+    
+    // Lista de todas as modalidades disponíveis
+    const todasModalidades = ['csgo2', 'valorant', 'rainbowsix', 'apex', 'lol', 'rocketleague', 'pubg', 'futebol7'];
+    
+    // Se não especificou modalidade, escolhe uma aleatória
+    if (!mod) {
+      const modalidadeAleatoria = todasModalidades[Math.floor(Math.random() * todasModalidades.length)];
+      return await getElenco(modalidadeAleatoria);
+    }
+    
+    // Verifica se a modalidade é válida
+    if (!todasModalidades.includes(mod.toLowerCase())) {
+      return `Modalidade inválida. Modalidades disponíveis: ${todasModalidades.join(', ')}`;
+    }
+    
+    // Se chegou até aqui, a modalidade é válida
     return await getElenco(mod);
   }
 
@@ -265,26 +365,11 @@ export async function botResponder(msg) {
   }
 
   if (texto.startsWith("/curiosidades")) {
-    // Corrige modalidade padrão para 'csgo2' (não existe mais 'csgo')
-    const mod = texto.split(" ")[1] || "csgo2";
-    return (async () => {
-      try {
-        const res = await fetch(
-          `http://localhost:3031/api/curiosidades/${mod}`
-        );
-        if (!res.ok) throw new Error("Status " + res.status);
-        const data = await res.json();
-        if (!data.curiosidades || !data.curiosidades.length)
-          return `Ainda não temos curiosidades cadastradas para ${mod} 🤔. Explore outras modalidades com /modalidades ou pergunte sobre outra equipe! Exemplo: /curiosidades valorant`;
-        return (
-          `Curiosidades de ${mod.toUpperCase()}:\n- ` +
-          data.curiosidades.join("\n- ")
-        );
-      } catch (err) {
-        console.error("Erro ao buscar curiosidades:", err);
-        return "Erro ao buscar curiosidades.";
-      }
-    })();
+    // Extrai a modalidade do comando
+    const mod = texto.split(" ")[1];
+    // Se não especificou modalidade, escolhe uma aleatória
+    const modalidade = mod ? mod.toLowerCase() : ["csgo2", "csgo", "valorant", "lol", "rocketleague", "apex", "rainbowsix", "kingsleague", "fifa"][Math.floor(Math.random() * 9)];
+    return await getCuriosidades(modalidade);
   }
 
   if (texto.startsWith("/modalidades")) {

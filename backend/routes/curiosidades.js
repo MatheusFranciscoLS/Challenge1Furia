@@ -41,28 +41,46 @@ const { validateModalidade } = require('../utils/validators');
 router.get('/:modalidade', async (req, res, next) => {
   const modalidadeParam = req.params.modalidade.toLowerCase();
   const modalidadesValidas = [
-    'csgo2','csgo','valorant','lol','rocketleague','apex','rainbowsix','kingsleague','fifa'
+    'csgo2', 'valorant', 'rainbowsix', 'apex', 'lol', 'rocketleague', 'pubg', 'kingsleague'
   ];
+  
+  // Se a modalidade não for válida, retorna todas as modalidades disponíveis
   if (!modalidadeParam || modalidadeParam === 'help' || modalidadeParam === 'comandos' || !modalidadesValidas.includes(modalidadeParam)) {
-    return res.status(400).json({ erro: 'Informe uma modalidade válida para consultar curiosidades. Consulte /modalidades para ver as opções.' });
+    return res.status(400).json({ 
+      erro: 'Informe uma modalidade válida para consultar curiosidades.',
+      modalidades: modalidadesValidas
+    });
   }
+
   const mod = resolveModalidade(modalidadeParam);
-  const { page = 1, limit = 20 } = req.query;
-  const { error } = validateModalidade(mod);
-  if (error) return res.status(400).json({ erro: 'Modalidade inválida' });
-  const pageNum = parseInt(page, 10);
-  const limitNum = parseInt(limit, 10);
   try {
     const doc = await db.collection('curiosidades').doc(mod).get();
     if (!doc.exists) {
-      return res.status(404).json({ erro: 'Modalidade não encontrada' });
+      return res.status(404).json({ 
+        erro: 'Modalidade não encontrada',
+        modalidades: modalidadesValidas
+      });
     }
-    let curiosidades = doc.data().curiosidades || [];
-    // Paginação manual
-    const start = (pageNum - 1) * limitNum;
-    curiosidades = curiosidades.slice(start, start + limitNum);
-    res.json({ curiosidades, page: pageNum, limit: limitNum });
+    
+    // Limpa as curiosidades para remover caracteres especiais
+    const curiosidades = (doc.data().curiosidades || []).map(curiosidade => 
+      curiosidade
+        .replace(/[^\w\s]/g, '') // Remove caracteres especiais
+        .replace(/\s+/g, ' ') // Remove espaços extras
+        .trim()
+
+    );
+
+    // Retorna as curiosidades limpas
+    // Se o parâmetro random for true, retorna uma curiosidade aleatória
+    if (req.query.random === 'true') {
+      const randomCuriosity = curiosidades[Math.floor(Math.random() * curiosidades.length)];
+      res.json({ curiosidade: randomCuriosity });
+    } else {
+      res.json({ curiosidades });
+    }
   } catch (e) {
+    console.error('Erro ao buscar curiosidades:', e);
     next(e);
   }
 });
