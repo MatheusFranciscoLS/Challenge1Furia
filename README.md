@@ -157,23 +157,23 @@ MIT
 
 ### Screenshots
 
-![Tela de Login](https://github.com/MatheusFranciscoLS/Challenge1Furia/blob/main/frontend/src/assets/prints/Inicio.png)
+![Tela de Login](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/Inicio.png)
 
-![Página Inicial](https://github.com/MatheusFranciscoLS/Challenge1Furia/blob/main/frontend/src/assets/prints/Principal.png)
+![Página Inicial](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/Principal.png)
 
-![Chat em funcionamento](https://github.com/MatheusFranciscoLS/Challenge1Furia/blob/main/frontend/src/assets/prints/chat.png)
+![Chat em funcionamento](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/chat.png)
 
-![Ranking dos Fãs](https://github.com/MatheusFranciscoLS/Challenge1Furia/blob/main/frontend/src/assets/prints/ranking.png)
+![Ranking dos Fãs](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/ranking.png)
 
-![Mural de Recados](https://github.com/MatheusFranciscoLS/Challenge1Furia/blob/main/frontend/src/assets/prints/mural.png)
+![Mural de Recados](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/mural.png)
 
-![Página de Placares](https://github.com/MatheusFranciscoLS/Challenge1Furia/blob/main/frontend/src/assets/prints/placar.png)
+![Página de Placares](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/placar.png)
 
-![Modal de Agenda](https://github.com/MatheusFranciscoLS/Challenge1Furia/blob/main/frontend/src/assets/prints/Agenda.png)
+![Modal de Agenda](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/Agenda.png)
 
-![Página de Quiz/Enquete](https://github.com/MatheusFranciscoLS/Challenge1Furia/blob/main/frontend/src/assets/prints/quiz.png)
+![Página de Quiz/Enquete](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/quiz.png)
 
-![Interação com o Bot](https://github.com/MatheusFranciscoLS/Challenge1Furia/blob/main/frontend/src/assets/prints/bot.png)
+![Interação com o Bot](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/bot.png)
 
 > **Observação:** A agenda de jogos e os placares exibem até 12 cards por vez. Para alterar esse limite, basta modificar o número no código (`.slice(0, 12)`).
 
