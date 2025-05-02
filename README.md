@@ -157,23 +157,23 @@ MIT
 
 ### Screenshots
 
-![Tela de Login](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/Inicio.png)
+![Tela de Login](/frontend/public/prints/Principal.png)
 
-![Página Inicial](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/Principal.png)
+![Página Inicial](/frontend/public/prints/Inicio.png)
 
-![Chat em funcionamento](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/chat.png)
+![Chat em funcionamento](/frontend//public/prints/chat.png)
 
-![Ranking dos Fãs](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/ranking.png)
+![Ranking dos Fãs](/frontend/public/prints/ranking.png)
 
-![Mural de Recados](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/mural.png)
+![Mural de Recados](/frontend/public/prints/mural.png)
 
-![Página de Placares](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/placar.png)
+![Página de Placares](/frontend/public/prints/placar.png)
 
-![Modal de Agenda](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/Agenda.png)
+![Modal de Agenda](/frontend/public/prints/Agenda.png)
 
-![Página de Quiz/Enquete](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/quiz.png)
+![Página de Quiz/Enquete](/frontend/public/prints/quiz.png)
 
-![Interação com o Bot](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/bot.png)
+![Interação com o Bot](/frontend/public/prints/bot.png)
 
 > **Observação:** A agenda de jogos e os placares exibem até 12 cards por vez. Para alterar esse limite, basta modificar o número no código (`.slice(0, 12)`).
 
