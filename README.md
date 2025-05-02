@@ -157,23 +157,23 @@ MIT
 
 ### Screenshots
 
-![Tela de Login](/frontend/public/prints/Principal.png)
+![Tela de Login](/frontend/src/prints/Principal.png)
 
-![Página Inicial](/frontend/public/prints/Inicio.png)
+![Página Inicial](/frontend/src/prints/Inicio.png)
 
-![Chat em funcionamento](/frontend//public/prints/chat.png)
+![Chat em funcionamento](/frontend/src/prints/chat.png)
 
-![Ranking dos Fãs](/frontend/public/prints/ranking.png)
+![Ranking dos Fãs](/frontend/src/prints/ranking.png)
 
-![Mural de Recados](/frontend/public/prints/mural.png)
+![Mural de Recados](/frontend/src/prints/mural.png)
 
-![Página de Placares](/frontend/public/prints/placar.png)
+![Página de Placares](/frontend/src/prints/placar.png)
 
-![Modal de Agenda](/frontend/public/prints/Agenda.png)
+![Modal de Agenda](/frontend/src/prints/Agenda.png)
 
-![Página de Quiz/Enquete](/frontend/public/prints/quiz.png)
+![Página de Quiz/Enquete](/frontend/src/prints/quiz.png)
 
-![Interação com o Bot](/frontend/public/prints/bot.png)
+![Interação com o Bot](/frontend/src/prints/bot.png)
 
 > **Observação:** A agenda de jogos e os placares exibem até 12 cards por vez. Para alterar esse limite, basta modificar o número no código (`.slice(0, 12)`).
 
