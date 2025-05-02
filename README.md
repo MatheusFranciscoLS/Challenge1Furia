@@ -98,15 +98,15 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
 
 [Link para vídeo de demonstração (YouTube/Drive)](URL_DO_VIDEO)
 
-![Tela de Login](./frontend/public/prints/inicio.png)
-![Página Inicial](./frontend/public/prints/principal.png)
-![Chat em funcionamento](./frontend/public/prints/Chat.png)
-![Ranking dos Fãs](./frontend/public/prints/Ranking.png)
-![Mural de Recados](./frontend/public/prints/Mural.png)
-![Página de Placares](./frontend/public/prints/Placar.png)
-![Modal de Agenda](./frontend/public/prints/agenda.png)
-![Página de Quiz/Enquete](./frontend/public/prints/Quiz.png)
-![Interação com o Bot](./frontend/public/prints/Bot.png)
+![Tela de Login](./frontend/public/prints/Inicio.png)
+![Página Inicial](./frontend/public/prints/Principal.png)
+![Chat em funcionamento](./frontend/public/Prints/Chat.png)
+![Ranking dos Fãs](./frontend/public/prints/ranking.png)
+![Mural de Recados](./frontend/public/prints/mural.png)
+![Página de Placares](./frontend/public/prints/placar.png)
+![Modal de Agenda](./frontend/public/prints/Agenda.png)
+![Página de Quiz/Enquete](./frontend/public/prints/quiz.png)
+![Interação com o Bot](./frontend/public/prints/bot.png)
 
 > **Observação:** A agenda de jogos e os placares exibem até 12 cards por vez. Para alterar esse limite, basta modificar o número no código (`.slice(0, 12)`).
 
