@@ -84,34 +84,6 @@ Aqui você acompanha jogos, consulta estatísticas, interage com outros fãs e r
 
 ---
 
-## 🖼️ Demonstração
-
-- Tela de login com botões "Entrar com Google" e "Entrar como Anônimo"
-- Página inicial (Home) com destaques das funcionalidades
-- Chat em funcionamento após login
-- Ranking dos fãs mais ativos
-- Mural de recados oficiais
-- Página de placares recentes
-- Página da agenda de jogos
-- Página de quiz/enquete
-- Interação do fã com o bot e comandos
-
-[Link para vídeo de demonstração (YouTube/Drive)](URL_DO_VIDEO)
-
-![Tela de Login](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/Inicio.png)
-![Página Inicial](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/Principal.png)
-![Chat em funcionamento](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/chat.png)
-![Ranking dos Fãs](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/ranking.png)
-![Mural de Recados](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/mural.png)
-![Página de Placares](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/placar.png)
-![Modal de Agenda](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/Agenda.png)
-![Página de Quiz/Enquete](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/quiz.png)
-![Interação com o Bot](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/bot.png)
-
-> **Observação:** A agenda de jogos e os placares exibem até 12 cards por vez. Para alterar esse limite, basta modificar o número no código (`.slice(0, 12)`).
-
----
-
 ## 📡 Arquitetura e Backend
 
 O frontend está totalmente integrado ao Firebase (Firestore e Auth), dispensando a necessidade de backend próprio para o chat e autenticação.
@@ -166,6 +138,44 @@ MIT
 ---
 
 > Dúvidas ou sugestões? Abra uma [issue](https://github.com/MatheusFranciscoLS/Challenge1Furia/issues) ou entre em contato!
+
+---
+
+## 🖼️ Demonstração
+
+### Prints do Sistema
+
+- Tela de login com botões "Entrar com Google" e "Entrar como Anônimo"
+- Chat em funcionamento após login
+- Logout retornando à tela de login
+- Abertura dos modais de agenda de jogos e placares recentes
+- Interação do fã com o bot e comandos
+
+### Vídeo de Demonstração
+
+[Link para vídeo de demonstração (YouTube/Drive)](URL_DO_VIDEO)
+
+### Screenshots
+
+![Tela de Login](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/Inicio.png)
+
+![Página Inicial](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/Principal.png)
+
+![Chat em funcionamento](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/chat.png)
+
+![Ranking dos Fãs](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/ranking.png)
+
+![Mural de Recados](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/mural.png)
+
+![Página de Placares](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/placar.png)
+
+![Modal de Agenda](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/Agenda.png)
+
+![Página de Quiz/Enquete](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/quiz.png)
+
+![Interação com o Bot](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/public/prints/bot.png)
+
+> **Observação:** A agenda de jogos e os placares exibem até 12 cards por vez. Para alterar esse limite, basta modificar o número no código (`.slice(0, 12)`).
 
 ---
 
