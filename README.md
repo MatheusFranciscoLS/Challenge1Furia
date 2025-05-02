@@ -101,31 +101,31 @@ Entretanto, há um backend Node.js pronto para futuras integrações.
 ### Prints do Sistema
 
 ### Tela de Login
-![Tela de Login](./frontend/src/public/prints/login.png)
+![Tela de Login](./frontend/public/login.png)
 
 ### Página Inicial
-![Página Inicial](./frontend/src/public/prints/home.png)
+![Página Inicial](./frontend/public/home.png)
 
 ### Chat em funcionamento
-![Chat em funcionamento](./frontend/src/public/prints/chat.png)
+![Chat em funcionamento](./frontend/public/chat.png)
 
 ### Ranking dos Fãs
-![Ranking dos Fãs](./frontend/src/public/prints/ranking.png)
+![Ranking dos Fãs](./frontend/public/ranking.png)
 
 ### Mural de Recados
-![Mural de Recados](./frontend/src/public/prints/mural.png)
+![Mural de Recados](./frontend/public/mural.png)
 
 ### Página de Placar
-![Página de Placar](./frontend/src/public/prints/placar.png)
+![Página de Placar](./frontend/public/placar.png)
 
 ### Modal de Agenda
-![Modal de Agenda](./frontend/src/public/prints/modal.png)
+![Modal de Agenda](./frontend/public/modal.png)
 
 ### Página de Quiz/Enquete
-![Página de Quiz/Enquete](./frontend/src/public/prints/quiz.png)
+![Página de Quiz/Enquete](./frontend/public/quiz.png)
 
 ### Interação com o Bot
-![Interação com o Bot](./frontend/src/public/prints/bot.png)
+![Interação com o Bot](./frontend/public/bot.png)
 
 ### Vídeo de Demonstração
 [🔗 Link para vídeo (YouTube ou Drive)](URL_DO_VIDEO)
