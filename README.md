@@ -100,15 +100,32 @@ Entretanto, há um backend Node.js pronto para futuras integrações.
 
 ### Prints do Sistema
 
-![Tela de Login](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/Inicio.png)
-![Página Inicial](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/Principal.png)
-![Chat em funcionamento](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/chat.png)
-![Ranking dos Fãs](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/ranking.png)
-![Mural de Recados](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/mural.png)
-![Página de Placares](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/placar.png)
-![Modal de Agenda](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/Agenda.png)
-![Página de Quiz/Enquete](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/quiz.png)
-![Interação com o Bot](https://raw.githubusercontent.com/MatheusFranciscoLS/Challenge1Furia/main/frontend/src/assets/prints/bot.png)
+### Tela de Login
+![Tela de Login](./frontend/src/assets/prints/login.png)
+
+### Página Inicial
+![Página Inicial](./frontend/src/assets/prints/home.png)
+
+### Chat em funcionamento
+![Chat em funcionamento](./frontend/src/assets/prints/chat.png)
+
+### Ranking dos Fãs
+![Ranking dos Fãs](./frontend/src/assets/prints/ranking.png)
+
+### Mural de Recados
+![Mural de Recados](./frontend/src/assets/prints/mural.png)
+
+### Página de Placar
+![Página de Placar](./frontend/src/assets/prints/placar.png)
+
+### Modal de Agenda
+![Modal de Agenda](./frontend/src/assets/prints/modal.png)
+
+### Página de Quiz/Enquete
+![Página de Quiz/Enquete](./frontend/src/assets/prints/quiz.png)
+
+### Interação com o Bot
+![Interação com o Bot](./frontend/src/assets/prints/bot.png)
 
 ### Vídeo de Demonstração
 [🔗 Link para vídeo (YouTube ou Drive)](URL_DO_VIDEO)
