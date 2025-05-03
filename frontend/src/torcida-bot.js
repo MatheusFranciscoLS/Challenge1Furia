@@ -706,7 +706,7 @@ async function getCuriosidades(modalidade) {
 
   // Modalidade: League of Legends
   if (/league of legends|lol\b|furia lol|time lol/.test(texto)) {
-    return `LEAGUE OF LEGENDS FURIA 🦁\n\nElenco: fNb (Top), Goot (Jungle), Envy (Mid), Netuno (ADC), RedBert (Suporte).\nPróximo jogo: FURIA vs paiN Gaming - 28/04/2025, 17h.\nCuriosidade: A FURIA já chegou a finais do CBLOL e é conhecida pelo jogo agressivo.\nHistória: A FURIA entrou no LoL em 2020 e rapidamente virou protagonista do cenário brasileiro.`;
+    return `LEAGUE OF LEGENDS FURIA 🦁\n\nElenco: fNb (Top), Goot (Jungle), Envy (Mid), Netuno (ADC), RedBert (Suporte).\nPróximo jogo: FURIA vs paiN - 28/04/2025, 17h.\nCuriosidade: A FURIA já chegou a finais do CBLOL e é conhecida pelo jogo agressivo.\nHistória: A FURIA entrou no LoL em 2020 e rapidamente virou protagonista do cenário brasileiro.`;
   }
 
   // Modalidade: Rocket League
