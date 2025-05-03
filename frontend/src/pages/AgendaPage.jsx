@@ -10,7 +10,7 @@ const jogosMock = [
     modalidade: "Counter-Strike 2",
     local: "Online",
     adversario: "Imperial",
-    adversarioLogo: "/public/imperial.png",
+    adversarioLogo: "/imperial.png",
     status: "scheduled",
   },
   {
@@ -20,7 +20,7 @@ const jogosMock = [
     modalidade: "VALORANT",
     local: "Arena FURIA",
     adversario: "LOUD",
-    adversarioLogo: "/public/loud.png",
+    adversarioLogo: "/loud.png",
     status: "live",
   },
   {
@@ -30,7 +30,7 @@ const jogosMock = [
     modalidade: "Counter-Strike 2",
     local: "Online",
     adversario: "paiN Gaming",
-    adversarioLogo: "/public/pain.png",
+    adversarioLogo: "/pain.png",
     status: "finished",
   },
 ];
