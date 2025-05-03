@@ -29,7 +29,7 @@ const jogosMock = [
     hora: "17:00",
     modalidade: "Counter-Strike 2",
     local: "Online",
-    adversario: "paiN Gaming",
+    adversario: "paiN",
     adversarioLogo: "/pain.png",
     status: "finished",
   },
