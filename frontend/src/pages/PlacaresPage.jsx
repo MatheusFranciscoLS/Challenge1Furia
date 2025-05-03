@@ -28,7 +28,7 @@ const placaresMock = [
     data: '20/04/2025',
     hora: '20:00',
     modalidade: 'Counter-Strike 2',
-    adversario: 'paiN Gaming',
+    adversario: 'paiN',
     adversarioLogo: '/pain.png',
     resultado: 'Vitória',
     placar: '16 x 7',
