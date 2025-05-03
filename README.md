@@ -100,8 +100,7 @@ Entretanto, há um backend Node.js pronto para futuras integrações.
 
 ### Prints do Sistema
 
-### Tela de Login
-![Tela de Login](./frontend/public/login.png)
+### Tela de Login![Tela de Login](./frontend/public/login.png)
 
 ### Página Inicial
 ![Página Inicial](./frontend/public/home.png)
