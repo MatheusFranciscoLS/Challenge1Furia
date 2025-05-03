@@ -128,7 +128,7 @@ Entretanto, há um backend Node.js pronto para futuras integrações.
 ![Interação com o Bot](./frontend/public/bot.png)
 
 ### Vídeo de Demonstração
-[🔗 Link para vídeo (YouTube ou Drive)](URL_DO_VIDEO)
+[🔗 Link para vídeo (YouTube ou Drive)](https://youtu.be/O2BYZJVENRA)
 
 ---
 
